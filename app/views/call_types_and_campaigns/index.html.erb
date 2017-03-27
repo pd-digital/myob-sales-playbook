@@ -1,0 +1,48 @@
+<div class="container">
+  <h2>MYOB Sales playbook</h2>
+</div>
+
+<main>
+  <div class="container">
+    <p><strong>Select your client call type:</strong></p>
+    <div class="row">
+      <div class="col-4">
+        <button data-call-type="trial" class="btn-call-type">Trial</button>
+      </div>
+
+      <div class="col-4">
+        <button data-call-type="upsell-winback" class="btn-call-type">Upsell/Winback</button>
+      </div>
+
+      <div class="col-4">
+        <button data-call-type="inbound-leads" class="btn-call-type">Inbound leads</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <p><strong>Select the specialty campaign:</strong></p>
+    <div class="row">
+      <div class="col-4">
+        <button data-campaign="campaign-1" class="btn-campaign">Special Campaign 1</button>
+      </div>
+
+      <div class="col-4">
+        <button data-campaign="campaign-2" class="btn-campaign">Special Campaign 2</button>
+      </div>
+
+      <div class="col-4">
+        <button data-campaign="campaign-3" class="btn-campaign">Special Campaign 3</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<hr>
+
+<div class="container">
+  <div class="page-controls">
+    <%= link_to '< BACK', '/' %>
+    <%= link_to 'NEXT >', '/' %>
+  </div>
+</div>

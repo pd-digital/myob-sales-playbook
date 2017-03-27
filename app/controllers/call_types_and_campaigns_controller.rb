@@ -1,0 +1,2 @@
+class CallTypesAndCampaignsController < ApplicationController
+end

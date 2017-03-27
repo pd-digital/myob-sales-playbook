@@ -1,0 +1,5 @@
+.btn-team.active,
+.btn-call-type.active,
+.btn-campaign.active {
+  border: 1px solid blue;
+}
