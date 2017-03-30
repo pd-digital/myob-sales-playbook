@@ -1,5 +1,3 @@
-.btn-team.active,
-.btn-call-type.active,
-.btn-campaign.active {
+.btn-toggle.active {
   border: 1px solid blue;
 }

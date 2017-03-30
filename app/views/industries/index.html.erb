@@ -1,0 +1,20 @@
+<main>
+  <div class="container">
+    <p><strong>What does your client do?</strong></p>
+    <div class="row">
+      <div class="col-3">
+        <button data-industry="hospitality" class="btn-toggle btn-industry">Hospitality</button>
+      </div>
+
+      <div class="col-3">
+        <button data-industry="retail" class="btn-toggle btn-industry">Retail</button>
+      </div>
+
+      <div class="col-3">
+        <button data-industry="trades" class="btn-toggle btn-industry">Trades</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= render partial: "footer", locals: { prev_page_link: call_types_and_campaigns_path, next_page_link: topics_path } %>

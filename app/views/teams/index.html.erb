@@ -1,34 +1,14 @@
-<div class="container">
-  <h2>MYOB Sales playbook</h2>
-</div>
-
 <main>
   <div class="container">
     <p><strong>Select your team:</strong></p>
     <div class="row">
-      <div class="col-3">
-        <button data-team="sme-sales" class="btn-team">SME Sales</button>
-      </div>
-
-      <div class="col-3">
-        <button data-team="sme-support" class="btn-team">SME Support</button>
-      </div>
-
-      <div class="col-3">
-        <button data-team="partners" class="btn-team">Partners</button>
-      </div>
-
-      <div class="col-3">
-        <button data-team="transactional-services" class="btn-team">Transactional Services</button>
-      </div>
+      <% @teams.each do |team| %>
+        <div class="col-3">
+          <button data-id="<%= team.id %>" data-team="<%= team.key %>" class="btn-toggle btn-team"><%= team.name %></button>
+        </div>
+      <% end %>
     </div>
   </div>
 </main>
 
-<hr>
-
-<div class="container">
-  <div class="page-controls">
-    <%= link_to 'NEXT >', call_types_and_campaigns_path %>
-  </div>
-</div>
+<%= render partial: "footer", locals: { prev_page_link: nil, next_page_link: call_types_and_campaigns_path } %>

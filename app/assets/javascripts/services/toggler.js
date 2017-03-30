@@ -1,43 +1,114 @@
 MSP.Toggler = function() {
-  var btnSelector = null
+  var togglesSelector = null
   var dataKey = null
   var localStorageKey = null
+  var nextBtnSelector = '.next'
+  var count = null
 
   function addBindings() {
-    $(document).off('click', btnSelector)
-    $(document).on('click', btnSelector, onTeamBtnClick)
+    $(document).off('click', togglesSelector)
+    $(document).on('click', togglesSelector, onToggleBtnClick)
   }
 
-  function onTeamBtnClick(e) {
+  function onToggleBtnClick(e) {
     var $toggle = $(e.target)
-    localStorage.setItem(localStorageKey, $toggle.attr(dataKey))
-    $(btnSelector).removeClass('active')
-    $toggle.addClass('active')
+    var toggleKey = $toggle.attr(dataKey)
+
+    // FIXME this is awful, at least pull them out into separate methods
+    if (count === 1) {
+      $(togglesSelector + '.active').each(function(index, toggle) {
+        removeKeyFromItemModel($(toggle), $(toggle).attr(dataKey))
+        $(toggle).removeClass('active')
+      })
+
+      addKeyToItemModel($toggle, toggleKey)
+      $toggle.addClass('active')
+    } else {
+      if ($toggle.hasClass('active')) {
+        removeKeyFromItemModel($toggle, toggleKey)
+        $toggle.removeClass('active')
+      } else {
+        addKeyToItemModel($toggle, toggleKey)
+        $toggle.addClass('active')
+      }
+
+      setURLParams()
+      validateToggles()
+    }
   }
 
-  function setCurrentActiveTeam() {
-    var data = localStorage.getItem(localStorageKey)
-    dataMatcher(dataKey, data).addClass('active')
+  function validateToggles() {
+    if ( $(togglesSelector + '.active').length >= count ) {
+      $(togglesSelector).not('.active').attr('disabled', 'disabled')
+    } else {
+      $(togglesSelector).not('.active').removeAttr('disabled')
+    }
+  }
+
+  function addKeyToItemModel($toggle, key) {
+    var itemModel = localStorage.getItem(localStorageKey)
+    if (itemModel) {
+      itemModel = JSON.parse(itemModel)
+      itemModel.push(key)
+    } else {
+      itemModel = [ $toggle.attr(dataKey) ]
+    }
+
+    localStorage.setItem(localStorageKey, JSON.stringify(itemModel))
+  }
+
+  function removeKeyFromItemModel($toggle, key) {
+    var itemModel = localStorage.getItem(localStorageKey)
+    itemModel = JSON.parse(itemModel)
+    keyIndex = itemModel.indexOf(key)
+    itemModel.splice(keyIndex, 1)
+
+    localStorage.setItem(localStorageKey, JSON.stringify(itemModel))
+  }
+
+  function setURLParams() {
+    if (localStorage.getItem(localStorageKey) && count > 1) {
+      var keys = JSON.parse(localStorage.getItem(localStorageKey))
+      $('.next').attr('href', originalNextHref + '/' + keys.join(','))
+    }
+  }
+
+  function setCurrentActiveItems() {
+    if (localStorage.getItem(localStorageKey)) {
+      var keys = JSON.parse(localStorage.getItem(localStorageKey))
+      keys.forEach(function(key) {
+        findElemByData({
+          attr: dataKey,
+          val: key
+        }).addClass('active')
+      })
+      if (count != 1) {
+        validateToggles()
+      }
+    }
   }
 
   function isValidPage() {
-    return $(btnSelector).length > 0
+    return $(togglesSelector).length > 0
   }
 
-  function dataMatcher(dataAttr, dataVal) {
-    return $('[' + dataAttr + '="' + dataVal + '"]')
+  function findElemByData(data) {
+    return $('[' + data.attr + '="' + data.val + '"]')
   }
 
   return {
     init: function(options) {
-      btnSelector = options.btnSelector
-      dataKey = options.dataKey
-      localStorageKey = options.localStorageKey
+      togglesSelector = '.btn-' + options.key
+      dataKey = 'data-' + options.key
+      localStorageKey = options.key
+      count = options.count
+      originalNextHref = $('.next').attr('href')
 
       if (!isValidPage()) return false
 
       addBindings()
-      setCurrentActiveTeam()
+      setCurrentActiveItems()
+      setURLParams()
       return this
     }
   }
