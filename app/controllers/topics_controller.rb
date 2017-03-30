@@ -1,11 +1,11 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order(:id)
   end
 
   def show
     keys = params[:id].split(',')
-    @topics = Topic.where(key: keys)
+    @topics = Topic.where(key: keys).order(:id)
   end
 
   def update
