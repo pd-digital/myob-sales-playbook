@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  if (!window.location.pathname.match(/\/call_types_and_campaigns$/) && !window.location.pathname.match(/\/call_types_and_campaigns\/$/)) return false
+  if (!window.location.pathname.match(/^\/call_types_and_campaigns$/) && !window.location.pathname.match(/^\/call_types_and_campaigns\/$/)) return false
 
   var KEY = 'call-type'
   var KEY2 = 'campaign'

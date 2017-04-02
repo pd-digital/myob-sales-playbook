@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     get 'states', on: :member
     get 'products', on: :member
   end
+  resources :products, only: [:index]
 end

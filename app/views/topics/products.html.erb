@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
     <% @products.each do |product| %>
-      <button class="product-toggle" data-toggle="<%= product.downcase %>" ><%= product %></button>
+      <button data-id="<%= product.id %>" data-product="<%= product.name.downcase %>" class="btn-toggle btn-product"><%= product.name %></button>
     <% end %>
 
     <table>
@@ -28,7 +28,7 @@
   </div>
 </main>
 
-<%= render partial: "footer", locals: { prev_page_link: topics_path, next_page_link: nil } %>
+<%= render partial: "footer", locals: { prev_page_link: topics_path, next_page_link: products_path } %>
 
 <style>
   .product-toggle.active { border: 1px solid pink; }

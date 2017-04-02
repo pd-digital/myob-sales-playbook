@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  if (!window.location.pathname.match(/\/topics$/) && !window.location.pathname.match(/\/topics\/$/)) return false
+  if (!window.location.pathname.match(/^\/topics$/) && !window.location.pathname.match(/^\/topics\/$/)) return false
 
   var KEY = 'topic'
   console.log(KEY)
