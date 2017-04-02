@@ -2,6 +2,8 @@
   <div class="container">
     <div class="row">
 
+    <p><%= @products %></p>
+
     <% @description_summaries.each do |description_summary| %>
       <h2>topic: <%= description_summary[:topic_name] %></h2>
       <h3>feature: <%= description_summary[:feature_name] %></h3>
