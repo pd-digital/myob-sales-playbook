@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330132411) do
+ActiveRecord::Schema.define(version: 20170401112523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "product_feature_descriptions", force: :cascade do |t|
+    t.string   "description"
+    t.integer  "product_feature_id"
+    t.integer  "product_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "product_features", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
@@ -26,9 +46,12 @@ ActiveRecord::Schema.define(version: 20170330132411) do
   create_table "topics", force: :cascade do |t|
     t.string   "name"
     t.string   "key"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.text     "questions"
+    t.text     "current_state"
+    t.text     "future_state"
+    t.integer  "product_feature_id"
     t.index ["key"], name: "index_topics_on_key", unique: true, using: :btree
   end
 

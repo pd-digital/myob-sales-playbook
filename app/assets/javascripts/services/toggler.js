@@ -69,7 +69,7 @@ MSP.Toggler = function() {
   function setURLParams() {
     if (localStorage.getItem(localStorageKey) && count > 1) {
       var keys = JSON.parse(localStorage.getItem(localStorageKey))
-      $('.next').attr('href', originalNextHref + '/' + keys.join(','))
+      $('.next').attr('href', originalNextHref + '/' + keys.join(',') + '/questions')
     }
   }
 

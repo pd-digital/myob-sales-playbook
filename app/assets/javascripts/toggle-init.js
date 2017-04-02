@@ -14,7 +14,7 @@ $(document).ready(function() {
     })
   })
 
-  $('#save-topics').on('click', function() {
+  $('#save-topic-questions').on('click', function() {
     var data = { topics: [] }
 
     $('.topic').each(function(index, topic) {
@@ -37,4 +37,31 @@ $(document).ready(function() {
 
     console.log('good start', data)
   })
+
+  if (window.location.pathname.match(/topics.*questions/)) {
+    if (localStorage.getItem('topic')) {
+      var keys = JSON.parse(localStorage.getItem('topic'))
+      var originalNextHref = $('.next').attr('href')
+      $('.next').attr('href', originalNextHref + '/' + keys.join(',') + '/states')
+    }
+  }
+
+  if (window.location.pathname.match(/topics.*states/)) {
+    if (localStorage.getItem('topic')) {
+      var keys = JSON.parse(localStorage.getItem('topic'))
+      var originalPrevHref = $('.prev').attr('href')
+      $('.prev').attr('href', originalPrevHref + '/' + keys.join(',') + '/questions')
+
+      var originalNextHref = $('.next').attr('href')
+      $('.next').attr('href', originalNextHref + '/' + keys.join(',') + '/products')
+    }
+  }
+
+  if (window.location.pathname.match(/topics.*products/)) {
+    if (localStorage.getItem('topic')) {
+      var keys = JSON.parse(localStorage.getItem('topic'))
+      var originalPrevHref = $('.prev').attr('href')
+      $('.prev').attr('href', originalPrevHref + '/' + keys.join(',') + '/states')
+    }
+  }
 })

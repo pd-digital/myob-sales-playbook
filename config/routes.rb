@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   root 'teams#index'
   resources :call_types_and_campaigns, only: [:index]
   resources :industries, only: [:index]
-  resources :topics, only: [:index, :show, :update]
+  resources :topics, only: [:index, :show, :update] do
+    get 'questions', on: :member
+    get 'states', on: :member
+    get 'products', on: :member
+  end
 end

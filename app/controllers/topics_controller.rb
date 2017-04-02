@@ -3,9 +3,32 @@ class TopicsController < ApplicationController
     @topics = Topic.all.order(:id)
   end
 
-  def show
+  def questions
     keys = params[:id].split(',')
     @topics = Topic.where(key: keys).order(:id)
+  end
+
+  def states
+    keys = params[:id].split(',')
+    @topics = Topic.where(key: keys).order(:id)
+  end
+
+  def products
+    keys = params[:id].split(',')
+    @description_summaries = ProductFeatureDescription.joins(product_feature: [:topic]).where('topics.key IN (?)', keys).group_by{ |pfd| pfd.product_feature.topic }.map do |sommat|
+      topic = sommat.first
+      product_feature_descriptions = sommat.second
+      {
+        topic_name: topic.name,
+        feature_name: topic.product_feature.name,
+        descriptions: product_feature_descriptions.map do |desc|
+          {
+            product: desc.product.name,
+            description: desc.description
+          }
+        end
+      }
+    end
   end
 
   def update
