@@ -101,7 +101,7 @@ MSP.Toggler = function() {
       togglesSelector = '.btn-' + options.key
       dataKey = 'data-' + options.key
       localStorageKey = options.key
-      count = options.count
+      count = options.count || 1
       originalNextHref = $('.next').attr('href')
 
       if (!isValidPage()) return false

@@ -16,7 +16,7 @@ class TopicsController < ApplicationController
   def products
     keys = params[:id].split(',')
     pfds = ProductFeatureDescription.joins(product_feature: [:topic]).where('topics.key IN (?)', keys)
-    @products = pfds.map(&:product).map(&:name)
+    @products = pfds.map(&:product).map(&:name).uniq
     @description_summaries = pfds.group_by{ |pfd| pfd.product_feature.topic }.map do |sommat|
       topic = sommat.first
       product_feature_descriptions = sommat.second
