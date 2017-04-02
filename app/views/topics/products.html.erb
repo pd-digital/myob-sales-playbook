@@ -1,20 +1,35 @@
 <main>
   <div class="container">
     <div class="row">
-
-    <p><%= @products %></p>
-
-    <% @description_summaries.each do |description_summary| %>
-      <h2>topic: <%= description_summary[:topic_name] %></h2>
-      <h3>feature: <%= description_summary[:feature_name] %></h3>
-      <% description_summary[:descriptions].each do |description| %>
-        <p><strong>product: <%= description[:product] %></strong></p>
-        <p>desc: <%= description[:description] %></p>
-      <% end %>
+    <% @products.each do |product| %>
+      <button class="product-toggle" data-toggle="<%= product.downcase %>" ><%= product %></button>
     <% end %>
+
+    <table>
+      <tbody>
+        <tr>
+          <th>Topic</th>
+          <th>Feature</th>
+          <th>Description</th>
+        </tr>
+      <% @description_summaries.each do |description_summary| %>
+        <tr>
+          <td><%= description_summary[:topic_name] %></td>
+          <td><%= description_summary[:feature_name] %></td>
+          <% description_summary[:descriptions].each do |description| %>
+          <td class="desc <%= description[:product].downcase %>"><%= description[:description] %></td>
+          <% end %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
     <button id="save-topic-states">SAVE</button>
   </div>
 </main>
 
 <%= render partial: "footer", locals: { prev_page_link: topics_path, next_page_link: nil } %>
+
+<style>
+  .product-toggle.active { border: 1px solid pink; }
+</style>
