@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
       {
         topic_name: topic.name,
         feature_name: topic.product_feature.name,
-        descriptions: product_feature_descriptions.map do |desc|
+        descriptions: product_feature_descriptions.uniq.map do |desc|
           {
             product: desc.product.name,
             description: desc.description
@@ -33,7 +33,7 @@ class TopicsController < ApplicationController
     end
   end
 
-  def update
+  def update_questions
     topics = params[:topics]
     params[:topics].each do |t|
       topic = Topic.find_by(key: t[:key])
@@ -43,6 +43,20 @@ class TopicsController < ApplicationController
     end
 
     response_json = Topic.where(key: topics.map{ |t| t[:key] }).select(:name, :key, :questions)
+    render json: { topics: response_json }.to_json
+  end
+
+  def update_states
+    topics = params[:topics]
+    params[:topics].each do |t|
+      topic = Topic.find_by(key: t[:key])
+      topic.name = t[:name]
+      topic.current_state = t[:currentState]
+      topic.future_state = t[:futureState]
+      topic.save
+    end
+
+    response_json = Topic.where(key: topics.map{ |t| t[:key] }).select(:name, :key, :current_state, :future_state)
     render json: { topics: response_json }.to_json
   end
 end

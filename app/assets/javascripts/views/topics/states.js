@@ -11,4 +11,27 @@ $(document).ready(function() {
     var originalNextHref = $('.next').attr('href')
     $('.next').attr('href', originalNextHref + '/' + keys.join(',') + '/products')
   }
+
+  $('#save-topic-states').on('click', function() {
+    var data = { topics: [] }
+
+    $('.topic').each(function(index, topic) {
+      data.topics.push({
+        key: $(topic).attr('data-key'),
+        name: $(topic).attr('data-name'),
+        currentState: $(topic).find('[data-current-state]').val(),
+        futureState: $(topic).find('[data-future-state]').val()
+      })
+    })
+
+    $.ajax({
+      url: '/topics/states',
+      method: 'PUT',
+      data: JSON.stringify(data),
+      contentType: 'application/json; charset=utf-8',
+      success: function(data) {
+        console.log(data)
+      }
+    })
+  })
 })
