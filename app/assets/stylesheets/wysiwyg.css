@@ -1,3 +1,4 @@
-.fr-toolbar {
-  border-top-color: #ec0677;
+.trumbowyg-editor,
+.trumbowyg-box {
+  min-height: 100px;
 }

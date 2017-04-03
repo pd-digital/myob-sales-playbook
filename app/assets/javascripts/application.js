@@ -15,4 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require turbolinks-compatibility
+
+//= require_tree ./vendor
 //= require_tree .

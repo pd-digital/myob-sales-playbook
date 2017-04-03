@@ -10,12 +10,10 @@ $(document).ready(function() {
 
   MSP.Toggler().init({ key: KEY })
 
-  // $('.client-benefit').froalaEditor({
-  //   toolbarButtons: ['bold', 'italic', 'formatOL', 'formatUL'],
-  //   toolbarButtonsMD: ['bold', 'italic', 'formatOL', 'formatUL'],
-  //   toolbarButtonsSM: ['bold', 'italic', 'formatOL', 'formatUL'],
-  //   toolbarButtonsXS: ['bold', 'italic', 'formatOL', 'formatUL']
-  // })
+  $('.client-benefit').trumbowyg({
+    btns: ['strong', 'em', 'unorderedList', 'orderedList'],
+    autogrow: true
+  })
 
   updateView()
   $('[data-product]').on('click', function() {
