@@ -16,11 +16,23 @@
         <tr>
           <td><%= client_task[:client_task].name %></td>
           <td><%= client_task[:feature].name %></td>
-          <% client_task[:benefits].each do |description| %>
-          <td class="desc <%= description[:product].name.downcase %>">
+
+          <% @products.each do |product| %>
+          <% match = false %>
+          <td class="desc <%= product.name.downcase %>">
+            <% client_task[:benefits].each do |description| %>
+            <% if product.name.downcase == description[:product].name.downcase %>
+            <% match = true %>
             <textarea data-id="<%= description[:id] %>" data-product-id="<%= description[:product].id %>"  data-feature-id="<%= client_task[:feature].id %>" class="client-benefit" style="width: 100%;"><%= description[:benefits] %></textarea>
+            <% end %>
+            <% end %>
+
+            <% if !match %>
+            <textarea data-product-id="<%= product.id %>" data-feature-id="<%= client_task[:feature].id %>" class="client-benefit" style="width: 100%;"></textarea>
+            <% end %>
           </td>
           <% end %>
+
         </tr>
       <% end %>
       </tbody>

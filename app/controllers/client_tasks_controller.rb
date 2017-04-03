@@ -16,7 +16,7 @@ class ClientTasksController < ApplicationController
   def products
     keys = params[:id].split(',')
     client_benefits = ClientBenefit.joins(product_feature: [:client_task]).where('client_tasks.key IN (?)', keys)
-    @products = client_benefits.map(&:product).uniq
+    @products = Product.all
     @client_tasks = client_benefits.group_by{ |cb| cb.product_feature.client_task }.map do |task_with_description|
       client_task = task_with_description.first
       client_benefits = task_with_description.second
@@ -65,12 +65,11 @@ class ClientTasksController < ApplicationController
   def update_benefits
     client_benefits = params[:clientBenefits]
     client_benefits.each do |cb|
-      client_benefit = ClientBenefit.find(cb[:id])
+      client_benefit = cb[:id].present? ? ClientBenefit.find(cb[:id]) : ClientBenefit.new
       client_benefit.product_id = cb[:productId]
       client_benefit.product_feature_id = cb[:featureId]
       client_benefit.benefits = cb[:benefits]
       client_benefit.save
-      Rails.logger.info(client_benefit.errors.messages)
     end
 
     response_json = ClientBenefit.where(id: client_benefits.map{ |t| t[:id] }).select(:product_id, :product_feature_id, :benefits)

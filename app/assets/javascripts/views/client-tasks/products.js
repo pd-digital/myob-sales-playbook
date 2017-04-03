@@ -49,12 +49,21 @@ $(document).ready(function() {
     var data = { clientBenefits: [] }
 
     $('.client-benefit:visible').each(function(index, client_task) {
-      data.clientBenefits.push({
-        id: $(client_task).data('id'),
-        productId: $(client_task).data('productId'),
-        featureId: $(client_task).data('featureId'),
-        benefits: $(client_task).val()
-      })
+
+      if ($(client_task).data('id')) {
+        data.clientBenefits.push({
+          id: $(client_task).data('id'),
+          productId: $(client_task).data('productId'),
+          featureId: $(client_task).data('featureId'),
+          benefits: $(client_task).val()
+        })
+      } else {
+        data.clientBenefits.push({
+          productId: $(client_task).data('productId'),
+          featureId: $(client_task).data('featureId'),
+          benefits: $(client_task).val()
+        })
+      }
     })
 
     $.ajax({
