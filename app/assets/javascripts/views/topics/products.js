@@ -2,6 +2,7 @@ $(document).ready(function() {
   if (!window.location.pathname.match(/\/topics\/.*\/products/)) return false
 
   var KEY = 'product'
+  var originalNextHref = $('.next').attr('href')
   console.log(KEY)
 
   MSP.Toggler().init({ key: KEY })
@@ -24,6 +25,16 @@ $(document).ready(function() {
     var product = activeToggle.data('product')
     $('.desc').hide()
     $('.' + product).show()
+
+    if (localStorage.getItem('product')) {
+      var keys = JSON.parse(localStorage.getItem('product'))
+      $('.next').attr('href', originalNextHref + '/' + keys.join(','))
+    }
+  }
+
+  if (localStorage.getItem('product')) {
+    var keys = JSON.parse(localStorage.getItem('product'))
+    $('.prev').attr('href', originalNextHref + '/' + keys.join(','))
   }
 
   if (localStorage.getItem('topic')) {
