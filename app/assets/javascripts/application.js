@@ -16,5 +16,5 @@
 //= require turbolinks
 //= require turbolinks-compatibility
 
-//= require_tree ./vendor
+//= require trumbowyg.min.js.erb
 //= require_tree .
