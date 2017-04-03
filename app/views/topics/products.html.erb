@@ -5,7 +5,7 @@
       <button data-id="<%= product.id %>" data-product="<%= product.name.downcase %>" class="btn-toggle btn-product"><%= product.name %></button>
     <% end %>
 
-    <table>
+    <table class="benefits-table">
       <tbody>
         <tr>
           <th>Topic</th>
@@ -23,8 +23,6 @@
       <% end %>
       </tbody>
     </table>
-
-    <button id="save-topic-states">SAVE</button>
   </div>
 </main>
 
@@ -32,4 +30,5 @@
 
 <style>
   .product-toggle.active { border: 1px solid pink; }
+  .benefits-table td { border-top: 1px solid #666; padding: 2px 10px; }
 </style>

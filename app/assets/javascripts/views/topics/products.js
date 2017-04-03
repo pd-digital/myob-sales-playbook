@@ -12,12 +12,18 @@ $(document).ready(function() {
   })
 
   function updateView() {
+    var activeToggle = null
+
     if (localStorage.getItem(KEY)) {
-      var activeToggle = $('[data-product].active')
-      var product = activeToggle.data('product')
-      $('.desc').hide()
-      $('.' + product).show()
+      activeToggle = $('[data-product].active')
+    } else {
+      activeToggle = $('[data-product]').first()
+      activeToggle.addClass('active')
+      localStorage.setItem(KEY, JSON.stringify([activeToggle.data('product')]))
     }
+    var product = activeToggle.data('product')
+    $('.desc').hide()
+    $('.' + product).show()
   }
 
   if (localStorage.getItem('topic')) {
