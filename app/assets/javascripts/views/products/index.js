@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  if (!window.location.pathname.match(/^\/products$/) && !window.location.pathname.match(/^\/products\/$/)) return false
+  if (!window.location.pathname.match(/^\/products\/.*$/)) return false
 
   console.log('products')
 
