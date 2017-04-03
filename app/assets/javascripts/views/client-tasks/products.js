@@ -1,8 +1,10 @@
 $(document).ready(function() {
-  if (!window.location.pathname.match(/\/topics\/.*\/products/)) return false
+  if (!window.location.pathname.match(/\/client_tasks\/.*\/products/)) return false
 
   var KEY = 'product'
-  var originalNextHref = $('.next').attr('href')
+  var CLIENT_TASK_KEY = 'client-task'
+  var ORIGINAL_NEXT_HREF = $('.next').attr('href')
+  var ORIGINAL_PREV_HREF = $('.prev').attr('href')
   console.log(KEY)
 
   MSP.Toggler().init({ key: KEY })
@@ -28,18 +30,17 @@ $(document).ready(function() {
 
     if (localStorage.getItem('product')) {
       var keys = JSON.parse(localStorage.getItem('product'))
-      $('.next').attr('href', originalNextHref + '/' + keys.join(','))
+      $('.next').attr('href', ORIGINAL_NEXT_HREF + '/' + keys.join(','))
     }
   }
 
   if (localStorage.getItem('product')) {
     var keys = JSON.parse(localStorage.getItem('product'))
-    $('.prev').attr('href', originalNextHref + '/' + keys.join(','))
+    $('.prev').attr('href', ORIGINAL_NEXT_HREF + '/' + keys.join(','))
   }
 
-  if (localStorage.getItem('topic')) {
-    var keys = JSON.parse(localStorage.getItem('topic'))
-    var originalPrevHref = $('.prev').attr('href')
-    $('.prev').attr('href', originalPrevHref + '/' + keys.join(',') + '/states')
+  if (localStorage.getItem(CLIENT_TASK_KEY)) {
+    var keys = JSON.parse(localStorage.getItem(CLIENT_TASK_KEY))
+    $('.prev').attr('href', ORIGINAL_PREV_HREF + '/' + keys.join(',') + '/states')
   }
 })

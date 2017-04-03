@@ -1,0 +1,18 @@
+<main>
+  <div class="container">
+    <div class="row">
+    <% @client_tasks.each do |client_task| %>
+      <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="col-4 client-task">
+        <p><strong><%= client_task.name %></strong></p>
+        <p>
+          <textarea data-questions style="width: 100%;"><%= client_task.questions %></textarea>
+        </p>
+      </div>
+    <% end %>
+    </div>
+
+    <button id="save-client-task-questions">SAVE</button>
+  </div>
+</main>
+
+<%= render partial: "footer", locals: { prev_page_link: client_tasks_path, next_page_link: client_tasks_path } %>

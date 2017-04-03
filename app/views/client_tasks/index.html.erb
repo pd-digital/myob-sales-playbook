@@ -1,0 +1,14 @@
+<main>
+  <div class="container">
+    <p><strong>Ask your client what tasks they do and select 3 key topics to focus your conversations on:</strong></p>
+    <div class="row">
+      <% @client_tasks.each do |client_task| %>
+        <div class="col-3">
+          <button data-id="<%= client_task.id %>" data-client-task="<%= client_task.key %>" class="btn-toggle btn-client-task"><%= client_task.name %></button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>
+
+<%= render partial: "footer", locals: { prev_page_link: industries_path, next_page_link: client_tasks_path } %>

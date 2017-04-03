@@ -3,8 +3,10 @@ $(document).ready(function() {
 
   console.log('products')
 
-  if (localStorage.getItem('topic')) {
-    var keys = JSON.parse(localStorage.getItem('topic'))
+  var CLIENT_TASK_KEY = 'client-task'
+
+  if (localStorage.getItem(CLIENT_TASK_KEY)) {
+    var keys = JSON.parse(localStorage.getItem(CLIENT_TASK_KEY))
     var originalPrevHref = $('.prev').attr('href')
     $('.prev').attr('href', originalPrevHref + '/' + keys.join(',') + '/products')
   }

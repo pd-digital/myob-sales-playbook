@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root 'teams#index'
   resources :call_types_and_campaigns, only: [:index]
   resources :industries, only: [:index]
-  resources :topics, only: [:index] do
+  resources :client_tasks, only: [:index] do
     get 'questions', on: :member
-    put 'questions', to: 'topics#update_questions', on: :collection
+    put 'questions', to: 'client_tasks#update_questions', on: :collection
     get 'states', on: :member
-    put 'states', to: 'topics#update_states', on: :collection
+    put 'states', to: 'client_tasks#update_states', on: :collection
     get 'products', on: :member
   end
   resources :products, only: [:index, :show]

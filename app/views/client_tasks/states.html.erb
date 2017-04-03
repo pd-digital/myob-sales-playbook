@@ -1,0 +1,23 @@
+<main>
+  <div class="container">
+    <div class="row">
+    <% @client_tasks.each do |client_task| %>
+      <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="col-4 client-task">
+        <p><strong><%= client_task.name %></strong></p>
+        <p>
+          <label for="">Curent state</label>
+          <textarea data-current-state style="width: 100%;"><%= client_task.current_state %></textarea>
+        </p>
+        <p>
+          <label for="">Future state</label>
+          <textarea data-future-state style="width: 100%;"><%= client_task.future_state %></textarea>
+        </p>
+      </div>
+    <% end %>
+    </div>
+
+    <button id="save-client-task-states">SAVE</button>
+  </div>
+</main>
+
+<%= render partial: "footer", locals: { prev_page_link: client_tasks_path, next_page_link: client_tasks_path } %>

@@ -8,14 +8,14 @@
     <table class="benefits-table">
       <tbody>
         <tr>
-          <th>Topic</th>
+          <th>Client Task</th>
           <th>Feature</th>
           <th>Description</th>
         </tr>
       <% @description_summaries.each do |description_summary| %>
         <tr>
-          <td><%= description_summary[:topic_name] %></td>
-          <td><%= description_summary[:feature_name] %></td>
+          <td><%= description_summary[:client_task] %></td>
+          <td><%= description_summary[:feature] %></td>
           <% description_summary[:descriptions].each do |description| %>
           <td class="desc <%= description[:product].downcase %>"><%= description[:description] %></td>
           <% end %>
@@ -26,7 +26,7 @@
   </div>
 </main>
 
-<%= render partial: "footer", locals: { prev_page_link: topics_path, next_page_link: products_path } %>
+<%= render partial: "footer", locals: { prev_page_link: client_tasks_path, next_page_link: products_path } %>
 
 <style>
   .product-toggle.active { border: 1px solid pink; }
