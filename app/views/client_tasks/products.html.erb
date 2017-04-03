@@ -14,15 +14,19 @@
         </tr>
       <% @client_tasks.each do |client_task| %>
         <tr>
-          <td><%= client_task[:client_task] %></td>
-          <td><%= client_task[:feature] %></td>
+          <td><%= client_task[:client_task].name %></td>
+          <td><%= client_task[:feature].name %></td>
           <% client_task[:benefits].each do |description| %>
-          <td class="desc <%= description[:product].downcase %>"><%= description[:benefits] %></td>
+          <td class="desc <%= description[:product].name.downcase %>">
+            <textarea data-id="<%= description[:id] %>" data-product-id="<%= description[:product].id %>"  data-feature-id="<%= client_task[:feature].id %>" class="client-benefit" style="width: 100%;"><%= description[:benefits] %></textarea>
+          </td>
           <% end %>
         </tr>
       <% end %>
       </tbody>
     </table>
+
+    <button id="save-client-benefits">SAVE</button>
   </div>
 </main>
 

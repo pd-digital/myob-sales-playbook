@@ -16,8 +16,8 @@ $(document).ready(function() {
 
     $('.client-task').each(function(index, client_task) {
       data.clientTasks.push({
-        key: $(client_task).attr('data-key'),
-        name: $(client_task).attr('data-name'),
+        key: $(client_task).attr('data-id'),
+        name: $(client_task).attr('data-product'),
         questions: $(client_task).find('[data-questions]').val()
       })
     })

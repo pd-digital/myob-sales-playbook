@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'states', on: :member
     put 'states', to: 'client_tasks#update_states', on: :collection
     get 'products', on: :member
+    put 'products', to: 'client_tasks#update_benefits', on: :collection
   end
   resources :products, only: [:index, :show]
 end

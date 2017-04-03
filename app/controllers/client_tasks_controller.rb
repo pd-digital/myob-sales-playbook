@@ -21,12 +21,13 @@ class ClientTasksController < ApplicationController
       client_task = task_with_description.first
       client_benefits = task_with_description.second
       {
-        client_task: client_task.name,
-        feature: client_task.product_feature.name,
+        client_task: client_task,
+        feature: client_task.product_feature,
         benefits: client_benefits.uniq.map do |client_benefit|
           {
-            product: client_benefit.product.name,
-            benefits: client_benefit.benefits
+            product: client_benefit.product,
+            benefits: client_benefit.benefits,
+            id: client_benefit.id
           }
         end
       }
@@ -59,5 +60,20 @@ class ClientTasksController < ApplicationController
 
     response_json = ClientTask.where(key: client_tasks.map{ |t| t[:key] }).select(:name, :key, :current_state, :future_state)
     render json: { clientTasks: response_json }.to_json
+  end
+
+  def update_benefits
+    client_benefits = params[:clientBenefits]
+    client_benefits.each do |cb|
+      client_benefit = ClientBenefit.find(cb[:id])
+      client_benefit.product_id = cb[:productId]
+      client_benefit.product_feature_id = cb[:featureId]
+      client_benefit.benefits = cb[:benefits]
+      client_benefit.save
+      Rails.logger.info(client_benefit.errors.messages)
+    end
+
+    response_json = ClientBenefit.where(id: client_benefits.map{ |t| t[:id] }).select(:product_id, :product_feature_id, :benefits)
+    render json: { clientBenefits: response_json }.to_json
   end
 end
