@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     put 'states', to: 'topics#update_states', on: :collection
     get 'products', on: :member
   end
-  resources :products, only: [:show]
+  resources :products, only: [:index, :show]
 end
