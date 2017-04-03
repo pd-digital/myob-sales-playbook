@@ -14,6 +14,13 @@ $(document).ready(function() {
     $('.next').attr('href', originalNextHref + '/' + keys.join(',') + '/products')
   }
 
+  $('[data-current-state], [data-future-state]').froalaEditor({
+    toolbarButtons: ['bold', 'italic', 'formatOL', 'formatUL'],
+    toolbarButtonsMD: ['bold', 'italic', 'formatOL', 'formatUL'],
+    toolbarButtonsSM: ['bold', 'italic', 'formatOL', 'formatUL'],
+    toolbarButtonsXS: ['bold', 'italic', 'formatOL', 'formatUL']
+  })
+
   $('#save-client-task-states').on('click', function() {
     var data = { clientTasks: [] }
 
