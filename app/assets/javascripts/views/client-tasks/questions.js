@@ -11,12 +11,12 @@ $(document).ready(function() {
     $('.next').attr('href', originalNextHref + '/' + keys.join(',') + '/states')
   }
 
-  $('[data-questions]').froalaEditor({
-    toolbarButtons: ['bold', 'italic', 'formatOL', 'formatUL'],
-    toolbarButtonsMD: ['bold', 'italic', 'formatOL', 'formatUL'],
-    toolbarButtonsSM: ['bold', 'italic', 'formatOL', 'formatUL'],
-    toolbarButtonsXS: ['bold', 'italic', 'formatOL', 'formatUL']
-  })
+  // $('[data-questions]').froalaEditor({
+  //   toolbarButtons: ['bold', 'italic', 'formatOL', 'formatUL'],
+  //   toolbarButtonsMD: ['bold', 'italic', 'formatOL', 'formatUL'],
+  //   toolbarButtonsSM: ['bold', 'italic', 'formatOL', 'formatUL'],
+  //   toolbarButtonsXS: ['bold', 'italic', 'formatOL', 'formatUL']
+  // })
 
   $(SAVE_CLIENT_TASK_SELECTOR).on('click', function() {
     var data = { clientTasks: [] }

@@ -15,6 +15,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require turbolinks-compatibility
-//= require froala_editor.min.js
-//= require plugins/lists.min.js
 //= require_tree .
