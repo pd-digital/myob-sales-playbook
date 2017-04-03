@@ -15,18 +15,18 @@ class ClientTasksController < ApplicationController
 
   def products
     keys = params[:id].split(',')
-    pfds = ProductFeatureDescription.joins(product_feature: [:client_task]).where('client_tasks.key IN (?)', keys)
-    @products = pfds.map(&:product).uniq
-    @description_summaries = pfds.group_by{ |pfd| pfd.product_feature.client_task }.map do |sommat|
-      client_task = sommat.first
-      product_feature_descriptions = sommat.second
+    client_benefits = ClientBenefit.joins(product_feature: [:client_task]).where('client_tasks.key IN (?)', keys)
+    @products = client_benefits.map(&:product).uniq
+    @client_tasks = client_benefits.group_by{ |cb| cb.product_feature.client_task }.map do |task_with_description|
+      client_task = task_with_description.first
+      client_benefits = task_with_description.second
       {
         client_task: client_task.name,
         feature: client_task.product_feature.name,
-        descriptions: product_feature_descriptions.uniq.map do |desc|
+        benefits: client_benefits.uniq.map do |client_benefit|
           {
-            product: desc.product.name,
-            description: desc.description
+            product: client_benefit.product.name,
+            benefits: client_benefit.benefits
           }
         end
       }

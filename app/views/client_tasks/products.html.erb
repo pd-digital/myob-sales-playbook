@@ -12,12 +12,12 @@
           <th>Feature</th>
           <th>Description</th>
         </tr>
-      <% @description_summaries.each do |description_summary| %>
+      <% @client_tasks.each do |client_task| %>
         <tr>
-          <td><%= description_summary[:client_task] %></td>
-          <td><%= description_summary[:feature] %></td>
-          <% description_summary[:descriptions].each do |description| %>
-          <td class="desc <%= description[:product].downcase %>"><%= description[:description] %></td>
+          <td><%= client_task[:client_task] %></td>
+          <td><%= client_task[:feature] %></td>
+          <% client_task[:benefits].each do |description| %>
+          <td class="desc <%= description[:product].downcase %>"><%= description[:benefits] %></td>
           <% end %>
         </tr>
       <% end %>

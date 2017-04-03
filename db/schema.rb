@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403052631) do
+ActiveRecord::Schema.define(version: 20170403055904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "client_benefits", force: :cascade do |t|
+    t.string   "benefits"
+    t.integer  "product_feature_id"
+    t.integer  "product_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "client_tasks", force: :cascade do |t|
     t.string   "name"
@@ -25,14 +33,6 @@ ActiveRecord::Schema.define(version: 20170403052631) do
     t.text     "future_state"
     t.integer  "product_feature_id"
     t.index ["key"], name: "index_client_tasks_on_key", unique: true, using: :btree
-  end
-
-  create_table "product_feature_descriptions", force: :cascade do |t|
-    t.string   "description"
-    t.integer  "product_feature_id"
-    t.integer  "product_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
   end
 
   create_table "product_features", force: :cascade do |t|
