@@ -5,13 +5,19 @@
       <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="col-4 client-task">
         <p><strong><%= client_task.name %></strong></p>
         <p>
+          <% if current_user.is_admin? %>
           <textarea data-questions style="width: 100%;"><%= client_task.questions %></textarea>
+          <% else %>
+          <div><%= client_task.questions.html_safe %></div>
+          <% end %>
         </p>
       </div>
     <% end %>
     </div>
 
+    <% if current_user.is_admin? %>
     <button id="save-client-task-questions">SAVE</button>
+    <% end %>
   </div>
 </main>
 

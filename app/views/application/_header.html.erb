@@ -1,4 +1,8 @@
 <div class="container">
+  <% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn", style: 'float:right;') %>
+  <% end %>
+
   <button style="float: right;" onClick="localStorage.clear();window.location = '/';">Start again</button>
   <%= link_to root_path do %>
     <h2>MYOB Sales playbook</h2></a>

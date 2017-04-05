@@ -35,44 +35,62 @@ class ClientTasksController < ApplicationController
   end
 
   def update_questions
-    client_tasks = params[:clientTasks]
-    Rails.logger.info(client_tasks)
-    client_tasks.each do |t|
-      client_task = ClientTask.find_by(key: t[:key])
-      client_task.name = t[:name]
-      client_task.questions = t[:questions]
-      client_task.save
-    end
+    if current_user.is_admin?
+      client_tasks = params[:clientTasks]
+      Rails.logger.info(client_tasks)
+      client_tasks.each do |t|
+        client_task = ClientTask.find_by(key: t[:key])
+        client_task.name = t[:name]
+        client_task.questions = t[:questions]
+        client_task.save
+      end
 
-    response_json = ClientTask.where(key: client_tasks.map{ |t| t[:key] }).select(:name, :key, :questions)
-    render json: { clientTasks: response_json }.to_json
+      response_json = ClientTask.where(key: client_tasks.map{ |t| t[:key] }).select(:name, :key, :questions)
+      render json: { clientTasks: response_json }.to_json
+    else
+      render_unauthorized
+    end
   end
 
   def update_states
-    client_tasks = params[:clientTasks]
-    client_tasks.each do |t|
-      client_task = ClientTask.find_by(key: t[:key])
-      client_task.name = t[:name]
-      client_task.current_state = t[:currentState]
-      client_task.future_state = t[:futureState]
-      client_task.save
-    end
+    if current_user.is_admin?
+      client_tasks = params[:clientTasks]
+      client_tasks.each do |t|
+        client_task = ClientTask.find_by(key: t[:key])
+        client_task.name = t[:name]
+        client_task.current_state = t[:currentState]
+        client_task.future_state = t[:futureState]
+        client_task.save
+      end
 
-    response_json = ClientTask.where(key: client_tasks.map{ |t| t[:key] }).select(:name, :key, :current_state, :future_state)
-    render json: { clientTasks: response_json }.to_json
+      response_json = ClientTask.where(key: client_tasks.map{ |t| t[:key] }).select(:name, :key, :current_state, :future_state)
+      render json: { clientTasks: response_json }.to_json
+    else
+      render_unauthorized
+    end
   end
 
   def update_benefits
-    client_benefits = params[:clientBenefits]
-    client_benefits.each do |cb|
-      client_benefit = cb[:id].present? ? ClientBenefit.find(cb[:id]) : ClientBenefit.new
-      client_benefit.product_id = cb[:productId]
-      client_benefit.product_feature_id = cb[:featureId]
-      client_benefit.benefits = cb[:benefits]
-      client_benefit.save
-    end
+    if current_user.is_admin?
+      client_benefits = params[:clientBenefits]
+      client_benefits.each do |cb|
+        client_benefit = cb[:id].present? ? ClientBenefit.find(cb[:id]) : ClientBenefit.new
+        client_benefit.product_id = cb[:productId]
+        client_benefit.product_feature_id = cb[:featureId]
+        client_benefit.benefits = cb[:benefits]
+        client_benefit.save
+      end
 
-    response_json = ClientBenefit.where(id: client_benefits.map{ |t| t[:id] }).select(:product_id, :product_feature_id, :benefits)
-    render json: { clientBenefits: response_json }.to_json
+      response_json = ClientBenefit.where(id: client_benefits.map{ |t| t[:id] }).select(:product_id, :product_feature_id, :benefits)
+      render json: { clientBenefits: response_json }.to_json
+    else
+      render_unauthorized
+    end
+  end
+
+  private
+
+  def render_unauthorized
+    render json: { error: 'unauthorized' }, status: :unauthorized
   end
 end

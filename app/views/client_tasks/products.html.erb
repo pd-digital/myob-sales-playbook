@@ -23,11 +23,15 @@
             <% client_task[:benefits].each do |description| %>
             <% if product.name.downcase == description[:product].name.downcase %>
             <% match = true %>
+            <% if current_user.is_admin? %>
             <textarea data-id="<%= description[:id] %>" data-product-id="<%= description[:product].id %>"  data-feature-id="<%= client_task[:feature].id %>" class="client-benefit" style="width: 100%;"><%= description[:benefits] %></textarea>
+            <% else %>
+            <div><%= description[:benefits] %></div>
+            <% end %>
             <% end %>
             <% end %>
 
-            <% if !match %>
+            <% if !match && current_user.is_admin? %>
             <textarea data-product-id="<%= product.id %>" data-feature-id="<%= client_task[:feature].id %>" class="client-benefit" style="width: 100%;"></textarea>
             <% end %>
           </td>
