@@ -4,6 +4,7 @@ MSP.Toggler = function() {
   var localStorageKey = null
   var nextBtnSelector = '.next'
   var count = null
+  var validToggleCount = 1
 
   function addBindings() {
     $(document).off('click', togglesSelector)
@@ -35,6 +36,8 @@ MSP.Toggler = function() {
       setURLParams()
       validateToggles()
     }
+
+    validateSelection()
   }
 
   function validateToggles() {
@@ -42,6 +45,27 @@ MSP.Toggler = function() {
       $(togglesSelector).not('.active').attr('disabled', 'disabled')
     } else {
       $(togglesSelector).not('.active').removeAttr('disabled')
+    }
+  }
+
+  function validateSelection() {
+    if ( $(togglesSelector + '.active').length >= validToggleCount ) {
+      $('[data-container="' + localStorageKey + '"]').data('valid', true)
+    } else {
+      $('[data-container="' + localStorageKey + '"]').data('valid', false)
+    }
+
+    var valid = true
+    $('[data-container]').each(function() {
+      if (!$(this).data('valid')) {
+        valid = false
+      }
+    })
+
+    if (valid) {
+      $('.next').removeAttr('disabled')
+    } else {
+      $('.next').attr('disabled', 'disabled')
     }
   }
 
@@ -109,6 +133,7 @@ MSP.Toggler = function() {
       addBindings()
       setCurrentActiveItems()
       setURLParams()
+      validateSelection()
       return this
     }
   }

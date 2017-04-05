@@ -1,7 +1,7 @@
 <main>
   <div class="container">
     <p><strong>Select your team:</strong></p>
-    <div class="row">
+    <div class="row" data-container="team">
       <% @teams.each do |team| %>
         <div class="col-3">
           <button data-id="<%= team.id %>" data-team="<%= team.key %>" class="btn-toggle btn-team"><%= team.name %></button>
