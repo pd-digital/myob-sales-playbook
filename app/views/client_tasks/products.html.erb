@@ -26,7 +26,7 @@
             <% if current_user.is_admin? %>
             <textarea data-id="<%= description[:id] %>" data-product-id="<%= description[:product].id %>"  data-feature-id="<%= client_task[:feature].id %>" class="client-benefit" style="width: 100%;"><%= description[:benefits] %></textarea>
             <% else %>
-            <div><%= description[:benefits] %></div>
+            <div><%= String(description[:benefits]).html_safe %></div>
             <% end %>
             <% end %>
             <% end %>

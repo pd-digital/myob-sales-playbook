@@ -8,7 +8,7 @@
           <% if current_user.is_admin? %>
           <textarea data-questions style="width: 100%;"><%= client_task.questions %></textarea>
           <% else %>
-          <div><%= client_task.questions.html_safe %></div>
+          <div><%= String(client_task.questions).html_safe %></div>
           <% end %>
         </p>
       </div>

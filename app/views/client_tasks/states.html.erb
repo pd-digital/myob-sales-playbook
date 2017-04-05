@@ -9,7 +9,7 @@
           <% if current_user.is_admin? %>
           <textarea data-current-state style="width: 100%;"><%= client_task.current_state %></textarea>
           <% else %>
-          <div><%= client_task.current_state.html_safe %></div>
+          <div><%= String(client_task.current_state).html_safe %></div>
           <% end %>
         </p>
         <p>
@@ -17,7 +17,7 @@
           <% if current_user.is_admin? %>
           <textarea data-future-state style="width: 100%;"><%= client_task.future_state %></textarea>
           <% else %>
-          <div><%= client_task.future_state.html_safe %></div>
+          <div><%= String(client_task.future_state).html_safe %></div>
           <% end %>
         </p>
       </div>
