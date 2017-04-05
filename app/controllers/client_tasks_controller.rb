@@ -15,7 +15,7 @@ class ClientTasksController < ApplicationController
 
   def products
     keys = params[:id].split(',')
-    client_benefits = ClientBenefit.joins(product_feature: [:client_task]).where('client_tasks.key IN (?)', keys)
+    client_benefits = ClientBenefit.joins(product_feature: [:client_task]).where('client_tasks.key IN (?)', keys).order(:id)
     @products = Product.all
     @client_tasks = client_benefits.group_by{ |cb| cb.product_feature.client_task }.map do |task_with_description|
       client_task = task_with_description.first
