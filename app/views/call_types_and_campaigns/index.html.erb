@@ -2,34 +2,22 @@
   <div class="container" data-container="call-type">
     <p><strong>Select your client call type:</strong></p>
     <div class="row">
-      <div class="col-4">
-        <button data-call-type="trial" class="btn-toggle btn-call-type">Trial</button>
-      </div>
-
-      <div class="col-4">
-        <button data-call-type="upsell-winback" class="btn-toggle btn-call-type">Upsell/Winback</button>
-      </div>
-
-      <div class="col-4">
-        <button data-call-type="inbound-leads" class="btn-toggle btn-call-type">Inbound leads</button>
-      </div>
+      <% @call_types.each do |call_type| %>
+        <div class="col-4">
+          <button data-call-type="<%= call_type.key %>" class="btn-toggle btn-call-type"><%= call_type.name %></button>
+        </div>
+      <% end %>
     </div>
   </div>
 
   <div class="container" data-container="campaign">
     <p><strong>Select the specialty campaign:</strong></p>
     <div class="row">
-      <div class="col-4">
-        <button data-campaign="campaign-1" class="btn-toggle btn-campaign">Special Campaign 1</button>
-      </div>
-
-      <div class="col-4">
-        <button data-campaign="campaign-2" class="btn-toggle btn-campaign">Special Campaign 2</button>
-      </div>
-
-      <div class="col-4">
-        <button data-campaign="campaign-3" class="btn-toggle btn-campaign">Special Campaign 3</button>
-      </div>
+      <% @campaigns.each do |campaign| %>
+        <div class="col-4">
+          <button data-campaign="<%= campaign.key %>" class="btn-toggle btn-campaign"><%= campaign.name %></button>
+        </div>
+      <% end %>
     </div>
   </div>
 </main>

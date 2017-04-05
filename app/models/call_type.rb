@@ -1,0 +1,2 @@
+class CallType < ApplicationRecord
+end

@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405085117) do
+ActiveRecord::Schema.define(version: 20170405111733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "call_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string   "name"
+    t.string   "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "client_benefits", force: :cascade do |t|
     t.string   "benefits"
@@ -33,6 +47,13 @@ ActiveRecord::Schema.define(version: 20170405085117) do
     t.text     "future_state"
     t.integer  "product_feature_id"
     t.index ["key"], name: "index_client_tasks_on_key", unique: true, using: :btree
+  end
+
+  create_table "client_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "product_features", force: :cascade do |t|
