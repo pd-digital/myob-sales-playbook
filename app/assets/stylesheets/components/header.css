@@ -16,6 +16,7 @@
 .header .header__link {
   text-decoration: none;
   display: inline-block;
+  color: #354555;
 }
 
 .header .header__logout {
