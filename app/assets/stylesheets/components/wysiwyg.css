@@ -2,3 +2,7 @@
 .trumbowyg-box {
   min-height: 100px;
 }
+
+.trumbowyg-editor {
+  background-color: #fff;
+}

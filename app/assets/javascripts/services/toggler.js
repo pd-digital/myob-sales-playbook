@@ -5,6 +5,7 @@ MSP.Toggler = function() {
   var nextBtnSelector = '.next'
   var count = null
   var validToggleCount = 1
+  var originalNextHref = null
 
   function addBindings() {
     $(document).off('click', togglesSelector)

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'teams#index'
-  
+  root 'client_tasks#index'
+
   resources :call_types_and_campaigns, only: [:index]
   resources :industries, only: [:index]
   resources :client_tasks, only: [:index] do

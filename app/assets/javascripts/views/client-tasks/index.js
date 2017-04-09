@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  if (!window.location.pathname.match(/^\/client_tasks$/) && !window.location.pathname.match(/^\/client_tasks\/$/)) return false
+  var pathname = window.location.pathname
+  if (!pathname.match(/^\/client_tasks$/) && !pathname.match(/^\/client_tasks\/$/) && !pathname.match(/^\/$/)) return false
 
   var KEY = 'client-task'
   console.log(KEY)

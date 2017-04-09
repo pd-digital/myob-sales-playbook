@@ -1,6 +1,6 @@
 <main>
   <div class="container">
-    <p><strong>Ask your client what tasks they do and select 3 key topics to focus your conversations on:</strong></p>
+    <p><strong>What does your client do?</strong></p>
     <div class="row" data-container="client-task">
       <% @client_tasks.each do |client_task| %>
         <div class="col-3">
@@ -11,4 +11,4 @@
   </div>
 </main>
 
-<%= render partial: "footer", locals: { prev_page_link: industries_path, next_page_link: client_tasks_path } %>
+<%= render partial: "footer", locals: { prev_page_link: nil, next_page_link: client_tasks_path } %>
