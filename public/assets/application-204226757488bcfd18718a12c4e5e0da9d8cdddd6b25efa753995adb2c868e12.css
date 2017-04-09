@@ -1,269 +1,119 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
 /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-body, html {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  left: 0;
-  top: 0;
-  font-size: 100%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.center, .container {
+.container {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-* {
-  font-family: Lato,Helvetica,sans-serif;
-  color: #333447;
-  line-height: 1.5;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-h1 {
-  font-size: 2.5rem;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-h2 {
-  font-size: 2rem;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-h3 {
-  font-size: 1.375rem;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-h4 {
-  font-size: 1.125rem;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-h5 {
-  font-size: 1rem;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-h6 {
-  font-size: .875rem;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-p {
-  font-size: 1.125rem;
-  font-weight: 200;
-  line-height: 1.8;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.font-light {
-  font-weight: 300;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.font-regular {
-  font-weight: 400;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.font-heavy {
-  font-weight: 700;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.left {
-  text-align: left;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.right {
-  text-align: right;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.center {
-  text-align: center;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.justify {
-  text-align: justify;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+/* line 6, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
 .container {
   width: 90%;
 }
 
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+/* line 10, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
 .row {
   position: relative;
   width: 100%;
 }
 
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+/* line 15, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
 .row [class^=col] {
   float: left;
   margin: .5rem 2%;
   min-height: .125rem;
 }
 
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9 {
+/* line 21, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10
+.col-11,
+.col-12 {
   width: 96%;
 }
 
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-1-sm {
-  width: 4.33%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-2-sm {
-  width: 12.66%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-3-sm {
-  width: 21%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-4-sm {
-  width: 29.33%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-5-sm {
-  width: 37.66%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-6-sm {
-  width: 46%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-7-sm {
-  width: 54.33%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-8-sm {
-  width: 62.66%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-9-sm {
-  width: 71%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-10-sm {
-  width: 79.33%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-11-sm {
-  width: 87.66%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.col-12-sm {
-  width: 96%;
-}
-
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+/* line 36, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
 .row::after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-.hidden-sm {
-  display: none;
-}
-
 @media only screen and (min-width: 33.75em) {
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 43, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .container {
     width: 80%;
   }
 }
 @media only screen and (min-width: 45em) {
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 49, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-1 {
     width: 4.33%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 52, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-2 {
     width: 12.66%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 55, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-3 {
     width: 21%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 58, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-4 {
     width: 29.33%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 61, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-5 {
     width: 37.66%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 64, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-6 {
     width: 46%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 67, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-7 {
     width: 54.33%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 70, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-8 {
     width: 62.66%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 73, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-9 {
     width: 71%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 76, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-10 {
     width: 79.33%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 79, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-11 {
     width: 87.66%;
   }
 
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 82, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .col-12 {
     width: 96%;
   }
-
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
-  .hidden-sm {
-    display: block;
-  }
 }
 @media only screen and (min-width: 60em) {
-  /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
+  /* line 88, /Users/parlux/Projects/pd/myob-sales-playbook/vendor/assets/stylesheets/simple-grid.min.css */
   .container {
     width: 75%;
     max-width: 60rem;
@@ -1116,17 +966,54 @@ body.trumbowyg-body-fullscreen {
 }
 
 /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/layout.css */
+html {
+  box-sizing: border-box;
+}
+
+/* line 4, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/layout.css */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 8, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/layout.css */
 body {
   max-width: 960px;
   margin: 0 auto;
-  box-sizing: border-box;
   background-color: #f3f4f5;
-  font-size: 12px;
 }
 
-/* line 9, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/layout.css */
+/* line 14, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/layout.css */
+main {
+  padding: 40px 0;
+}
+
+/* line 18, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/layout.css */
 .page-controls {
   float: right;
+}
+
+@font-face {
+  font-family: 'NeutroMYOB-Regular';
+  src: url(/assets/NeutroMYOB-Regular-2bdc21b1c93aec282a76b2cb6e677f461e0f11aa9f68d00dafa636094be73c8c.woff2);
+}
+@font-face {
+  font-family: 'NeutroMYOB-Medium';
+  src: url(/assets/NeutroMYOB-Medium-95fef526547e03ef68c2c3c235b12de0b3450250d4c0d849eec93c8e52290eb1.woff2);
+}
+@font-face {
+  font-family: 'NeutroMYOB-Demi';
+  src: url(/assets/NeutroMYOB-Demi-dcfc03998f0244925ad335a86218c86d12605598125eb371877bfb0569ad54f3.woff2);
+}
+/* line 16, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/type.css.erb */
+html, body {
+  font-family: 'NeutroMYOB-Regular', Arial,sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* line 22, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/type.css.erb */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
 }
 
 /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/buttons.css */
@@ -1153,8 +1040,27 @@ a[disabled="disabled"] {
 }
 
 /* line 21, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/buttons.css */
+.btn-toggle {
+  border: 1px solid #fff;
+}
+
+/* line 25, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/buttons.css */
 .btn-toggle.active {
   border: 1px solid blue;
+}
+
+/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/forms.css */
+input, select, textarea {
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #eee;
+  margin: 5px 0;
+  width: 100%;
+}
+
+/* line 9, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/common/forms.css */
+input[type="checkbox"] {
+  width: auto;
 }
 
 /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/components/header.css */
@@ -1192,7 +1098,7 @@ a[disabled="disabled"] {
 /* line 28, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/components/header.css */
 .header .header__logo {
   padding: 10px 0;
-  height: 32px;
+  height: 52px;
   margin-right: 15px;
 }
 
@@ -1205,6 +1111,24 @@ a[disabled="disabled"] {
   height: 2px;
 }
 
+/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/components/flash.css */
+.flash {
+  padding: 15px 0;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+/* line 8, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/components/flash.css */
+.flash.flash--notice {
+  background-color: #b3e5fc;
+}
+
+/* line 12, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/components/flash.css */
+.flash.flash--alert {
+  background-color: #ffcdd2;
+}
+
 /* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/components/wysiwyg.css */
 .trumbowyg-editor,
 .trumbowyg-box {
@@ -1214,4 +1138,27 @@ a[disabled="disabled"] {
 /* line 6, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/components/wysiwyg.css */
 .trumbowyg-editor {
   background-color: #fff;
+}
+
+/* line 1, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/components/login-box.css */
+.login-box {
+  background: #fff;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* line 7, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/components/login-box.css */
+.login-box .login-box__title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  /* line 14, /Users/parlux/Projects/pd/myob-sales-playbook/app/assets/stylesheets/components/login-box.css */
+  .login-box {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

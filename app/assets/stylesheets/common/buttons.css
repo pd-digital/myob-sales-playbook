@@ -18,6 +18,10 @@ a[disabled="disabled"] {
   color: #cccccc;
 }
 
+.btn-toggle {
+  border: 1px solid #fff;
+}
+
 .btn-toggle.active {
   border: 1px solid blue;
 }
