@@ -1,0 +1,12 @@
+.flash {
+  padding: 15px 0;
+  margin-top: 10px;
+}
+
+.flash.flash--notice {
+  background-color: #b3e5fc;
+}
+
+.flash.flash--alert {
+  background-color: #ffcdd2;
+}
