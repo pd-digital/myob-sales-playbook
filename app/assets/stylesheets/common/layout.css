@@ -21,6 +21,10 @@ main {
   text-align: center;
 }
 
+.page-instruction {
+  margin-bottom: 22px;
+}
+
 .page-controls {
   float: right;
 }

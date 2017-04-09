@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  if (!window.location.pathname.match(/^\/$/)) return false
+  if (!window.location.pathname.match(/^\/teams/)) return false
 
   var KEY = 'team'
   console.log(KEY)

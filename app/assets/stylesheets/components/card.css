@@ -1,0 +1,14 @@
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card[disabled] {
+  background: #eee;
+}
+
+.card.active {
+  border-color: #8648ac;
+}

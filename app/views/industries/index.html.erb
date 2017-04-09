@@ -1,14 +1,15 @@
 <main>
   <div class="container">
-    <p><strong>What does your client do?</strong></p>
+    <p class="page-title">What does your client do?</p>
+
     <div class="row" data-container="client-type">
       <% @client_types.each do |client_type| %>
         <div class="col-4">
-          <button data-client-type="<%= client_type.key %>" class="btn-toggle btn-client-type"><%= client_type.name %></button>
+          <button data-client-type="<%= client_type.key %>" class="card btn-toggle btn-client-type"><%= client_type.name %></button>
         </div>
       <% end %>
     </div>
   </div>
 </main>
 
-<%= render partial: "footer", locals: { prev_page_link: call_types_and_campaigns_path, next_page_link: client_tasks_path } %>
+<%= render partial: "footer", locals: { prev_page_link: nil, next_page_link: client_tasks_path } %>
