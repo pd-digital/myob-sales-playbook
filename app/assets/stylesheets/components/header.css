@@ -1,0 +1,33 @@
+.header {
+  background-color: #fff;
+}
+
+.header .btn {
+  float: right;
+  margin-top: 13px;
+}
+
+.header .header__title {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.header .header__link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.header .header__logo {
+  padding: 10px 0;
+  height: 32px;
+  margin-right: 15px;
+}
+
+.header .header__gradient {
+  background-color: #b93499;
+  background: -webkit-gradient(linear,left top,right top,from(#6100a5),color-stop(#8241aa),color-stop(#b93499),to(#ec0677));
+  background: -webkit-linear-gradient(left,#6100a5,#8241aa,#b93499,#ec0677);
+  background: linear-gradient(to right,#6100a5,#8241aa,#b93499,#ec0677);
+  height: 2px;
+}

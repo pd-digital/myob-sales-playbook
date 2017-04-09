@@ -1,0 +1,17 @@
+.btn {
+  background-color: #00aa65;
+  border: 2px solid #00aa65;
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 12px;
+  min-width: 100px;
+  cursor: pointer;
+}
+
+a[disabled="disabled"] {
+  color: #cccccc;
+}
+
+.btn-toggle.active {
+  border: 1px solid blue;
+}

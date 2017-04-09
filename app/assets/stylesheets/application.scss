@@ -1,7 +1,7 @@
 @import "simple-grid.min";
 @import "trumbowyg.min";
 
-@import "layout";
-@import "buttons";
-@import "teams";
-@import "wysiwyg";
+@import "common/layout";
+@import "common/buttons";
+@import "components/header";
+@import "components/wysiwyg";
