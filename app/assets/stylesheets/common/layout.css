@@ -3,6 +3,7 @@ body {
   margin: 0 auto;
   box-sizing: border-box;
   background-color: #eee;
+  font-size: 12px;
 }
 
 .page-controls {

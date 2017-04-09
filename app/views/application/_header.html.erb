@@ -3,7 +3,7 @@
 
   <div class="container">
     <% if user_signed_in? %>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn", style: 'float:right;') %>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "header__logout") %>
     <% end %>
 
     <button class="btn" onClick="localStorage.clear();window.location = '/';">Start again</button>

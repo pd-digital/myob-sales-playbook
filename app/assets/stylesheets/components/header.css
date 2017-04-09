@@ -18,6 +18,13 @@
   display: inline-block;
 }
 
+.header .header__logout {
+  float: right;
+  text-decoration: none;
+  margin-top: 18px;
+  margin-left: 10px;
+}
+
 .header .header__logo {
   padding: 10px 0;
   height: 32px;
