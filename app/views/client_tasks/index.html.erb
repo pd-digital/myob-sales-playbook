@@ -3,11 +3,21 @@
     <p class="page-instruction">Ask your client what tasks they do and select <strong>3</strong> key topics to focus your conversation on:</p>
 
     <div class="row" data-container="client-task">
-      <% @client_tasks.each do |client_task| %>
-        <div class="col-3">
+      <div class="col-9">
+        <% @client_tasks.each do |client_task| %>
+        <div class="col-4">
           <button data-id="<%= client_task.id %>" data-client-task="<%= client_task.key %>" class="card btn-toggle btn-client-task"><%= client_task.name %></button>
         </div>
-      <% end %>
+        <% end %>
+      </div>
+
+      <div class="col-3 sidebar">
+        <div class="client-info">
+          <p class="client-info__title">Client information</p>
+          <hr>
+          <div data-client-info></div>
+        </div>
+      </div>
     </div>
   </div>
 </main>

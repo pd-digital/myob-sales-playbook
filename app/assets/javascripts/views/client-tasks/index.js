@@ -6,4 +6,5 @@ $(document).ready(function() {
   console.log(KEY)
 
   MSP.Toggler().init({ count: 3, key: KEY })
+  MSP.ClientInfo().init()
 })

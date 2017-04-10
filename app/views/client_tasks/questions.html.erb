@@ -1,18 +1,28 @@
 <main>
   <div class="container">
     <div class="row">
-    <% @client_tasks.each do |client_task| %>
-      <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="col-4 client-task">
-        <p><strong><%= client_task.name %></strong></p>
-        <p>
-          <% if current_user.is_admin? %>
-          <textarea data-questions style="width: 100%;"><%= client_task.questions %></textarea>
-          <% else %>
-          <div><%= String(client_task.questions).html_safe %></div>
-          <% end %>
-        </p>
+      <div class="col-9">
+        <% @client_tasks.each do |client_task| %>
+        <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="col-4 client-task">
+          <p><strong><%= client_task.name %></strong></p>
+          <p>
+            <% if current_user.is_admin? %>
+            <textarea data-questions style="width: 100%;"><%= client_task.questions %></textarea>
+            <% else %>
+            <div><%= String(client_task.questions).html_safe %></div>
+            <% end %>
+          </p>
+        </div>
+        <% end %>
       </div>
-    <% end %>
+
+      <div class="col-3 sidebar">
+        <div class="client-info">
+          <p class="client-info__title">Client information</p>
+          <hr>
+          <div data-client-info></div>
+        </div>
+      </div>
     </div>
 
     <% if current_user.is_admin? %>

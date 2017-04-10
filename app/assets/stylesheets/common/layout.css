@@ -28,3 +28,7 @@ main {
 .page-controls {
   float: right;
 }
+
+.sidebar {
+  margin-top: 1rem !important;
+}
