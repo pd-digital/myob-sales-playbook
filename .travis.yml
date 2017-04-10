@@ -1,9 +1,11 @@
+language: ruby
+rvm:
+  - 2.3.3
+script:
+  - bin/rake db:create db:migrate RAILS_ENV=test
+  - bin/rake
+  - bin/rake assets:precompile"
 deploy:
   provider: heroku
   api_key:
     secure: hsS/bNn+uduIINuU0uMJXkU+1pFpA3sdXCe5Byqlobn6xzcceMYa7zQvC5AH4Ax1LcaBKMszLwcsMebpcL4rNDDk9oqck3pZ+2B0O1K276ehPnud0s3F3FNDi6lRWC+I0+6Qu5e5JP1gQO/oI9IoYMSFxE9xASB9zZsyN4/jI7SKpiPcvrW88V1DA6kTgNCDEZ8Bd8gzEzPc39qxxP6IaStuDQOHUB4Nr6otpfjh1qQm+LbMrD6SjIkDZRDEw32MIyNKgv97NDkIMFBcY/x6bo+NUlaQDBfpvIxn8Ei8v6uh5ntp6s/ZFGjbbJv2+8lvkFz7W0sem5fR92aQnr8apvgf3a1wKUHHGQZxB3l3LSi6axDGSpQ4wpUKga8VccGF75qchBLns0Wfx0D28wUsAmkCIah2jayGlFdXhQyx3VPbAH4MvatTA/jF9KeNZT8dSCM6vI6GTITw1PYD+zyPNHv30Km14wBxMZyviSlsT8X86+bqtCMOMcbHE2oNCp8pC+Yyvv2NJ6XUnvxnDUkvWv/pmCGbWH7T+vGJtjFhlbNBNCa7hgf0zUabn0l/QQ9H6zdcDOutgUuvmP709pkQYi92eOKhIPpxVVpeEaxgIIvljiSzKge0HXEIlVyhvdmRrinU2LlJeuQpaBtAoGh0Q+3V8DxsIGep3Ynfcp/pQQM=
-run:
-  - "bundle exec assets:precompile"
-  - "bundle exec rake db:create"
-  - "bundle exec rake db:migrate"
-  - "bundle exec rake cleanup"
