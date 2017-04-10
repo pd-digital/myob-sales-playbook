@@ -2,6 +2,18 @@ MSP.ClientInfo = function() {
   var $dataElem = $('[data-client-info]')
   var clientInformation = [
     {
+      key: 'team',
+      title: 'Team'
+    },
+    {
+      key: 'call-type',
+      title: 'Call type'
+    },
+    {
+      key: 'campaign',
+      title: 'Campaign'
+    },
+    {
       key: 'client-type',
       title: 'Industry'
     },

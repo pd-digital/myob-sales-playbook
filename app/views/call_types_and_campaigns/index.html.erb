@@ -1,23 +1,33 @@
 <main>
-  <div class="container" data-container="call-type">
-    <p><strong>Select your client call type:</strong></p>
-    <div class="row">
-      <% @call_types.each do |call_type| %>
-        <div class="col-4">
-          <button data-call-type="<%= call_type.key %>" class="btn-toggle btn-call-type"><%= call_type.name %></button>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  <div class="container">
+    <p class="page-instruction">Select your client call type and campaign:</p>
 
-  <div class="container" data-container="campaign">
-    <p><strong>Select the specialty campaign:</strong></p>
     <div class="row">
-      <% @campaigns.each do |campaign| %>
-        <div class="col-4">
-          <button data-campaign="<%= campaign.key %>" class="btn-toggle btn-campaign"><%= campaign.name %></button>
+      <div class="col-9">
+        <p>Call type:</p>
+
+        <div class="row" data-container="call-type">
+          <% @call_types.each do |call_type| %>
+            <div class="col-4">
+              <button data-call-type="<%= call_type.name %>" class="card btn-toggle btn-call-type"><%= call_type.name %></button>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+
+        <p>Campaign:</p>
+        
+        <div class="row" data-container="call-type">
+          <% @campaigns.each do |campaign| %>
+            <div class="col-4">
+              <button data-campaign="<%= campaign.name %>" class="card btn-toggle btn-campaign"><%= campaign.name %></button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-3 sidebar">
+        <%= render partial: 'shared/client_info' %>
+      </div>
     </div>
   </div>
 </main>

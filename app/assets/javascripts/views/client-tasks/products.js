@@ -42,11 +42,17 @@ $(document).ready(function() {
 
   if (localStorage.getItem('product')) {
     var keys = JSON.parse(localStorage.getItem('product'))
+    keys = keys.map(function(key) {
+      return key.toLowerCase().replace(/\s/g, '-').replace(/\//g, '-')
+    })
     $('.prev').attr('href', ORIGINAL_NEXT_HREF + '/' + keys.join(','))
   }
 
   if (localStorage.getItem(CLIENT_TASK_KEY)) {
     var keys = JSON.parse(localStorage.getItem(CLIENT_TASK_KEY))
+    keys = keys.map(function(key) {
+      return key.toLowerCase().replace(/\s/g, '-').replace(/\//g, '-')
+    })
     $('.prev').attr('href', ORIGINAL_PREV_HREF + '/' + keys.join(',') + '/states')
   }
 

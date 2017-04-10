@@ -7,4 +7,5 @@ $(document).ready(function() {
 
   MSP.Toggler().init({ key: KEY })
   MSP.Toggler().init({ key: KEY2 })
+  MSP.ClientInfo().init()
 })

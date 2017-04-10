@@ -5,6 +5,8 @@ $(document).ready(function() {
 
   var CLIENT_TASK_KEY = 'client-task'
 
+  MSP.ClientInfo().init()
+
   if (localStorage.getItem(CLIENT_TASK_KEY)) {
     var keys = JSON.parse(localStorage.getItem(CLIENT_TASK_KEY))
     keys = keys.map(function(key) {

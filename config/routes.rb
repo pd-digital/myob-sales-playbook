@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'industries#index'
+  root 'teams#index'
 
   resources :call_types_and_campaigns, only: [:index]
   resources :industries, only: [:index]
