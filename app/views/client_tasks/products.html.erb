@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
     <% @products.each do |product| %>
-      <button data-id="<%= product.id %>" data-product="<%= product.name.downcase %>" class="card btn-toggle btn-product"><%= product.name %></button>
+      <button data-id="<%= product.id %>" data-product="<%= product.name.downcase %>" class="tab btn-toggle btn-product"><%= product.name %></button>
     <% end %>
 
     <table class="benefits-table">

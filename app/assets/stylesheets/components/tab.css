@@ -1,0 +1,17 @@
+.tab {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 12px;
+  color: #8648ac;
+  box-shadow: 0 0 1px rgba(0,0,0,.1);
+}
+
+.tab[disabled] {
+  background: #eee;
+}
+
+.tab.active {
+  border-color: #8648ac;
+}
