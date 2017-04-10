@@ -2,11 +2,25 @@
   background: #fff;
   border: 1px solid #eee;
   border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
-  padding: 28px 0;
+  padding: 12px;
   color: #8648ac;
   box-shadow: 0 0 1px rgba(0,0,0,.1);
+}
+
+.card ol {
+  margin: 0;
+  padding-left: 10px;
+}
+
+.card .card__body {
+  color: #000;
+  margin-top: 15px;
+}
+
+.card .card--wide {
+  cursor: pointer;
+  width: 100%;
+  padding-left: 28px 0;
 }
 
 .card[disabled] {

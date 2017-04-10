@@ -6,7 +6,7 @@
       <div class="col-9">
         <% @client_tasks.each do |client_task| %>
         <div class="col-4">
-          <button data-client-task="<%= client_task.name %>" class="card btn-toggle btn-client-task"><%= client_task.name %></button>
+          <button data-client-task="<%= client_task.name %>" class="card card--wide btn-toggle btn-client-task"><%= client_task.name %></button>
         </div>
         <% end %>
       </div>

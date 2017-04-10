@@ -1,8 +1,30 @@
 .trumbowyg-editor,
 .trumbowyg-box {
-  min-height: 100px;
+  min-height: 200px;
+  width: auto;
 }
 
 .trumbowyg-editor {
   background-color: #fff;
+  padding: 8px;
+}
+
+.trumbowyg-button-pane {
+  min-height: 0;
+}
+
+.trumbowyg-button-pane button {
+  height: auto;
+  width: auto;
+  padding: 3px !important;
+  margin: 0;
+}
+
+.trumbowyg-box svg {
+  height: 15px;
+}
+
+.trumbowyg-button-pane .trumbowyg-button-group:not(:empty) + .trumbowyg-button-group::before {
+  content: initial;
+  height: auto;
 }

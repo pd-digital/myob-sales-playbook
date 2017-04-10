@@ -9,17 +9,17 @@
         <div class="row" data-container="call-type">
           <% @call_types.each do |call_type| %>
             <div class="col-4">
-              <button data-call-type="<%= call_type.name %>" class="card btn-toggle btn-call-type"><%= call_type.name %></button>
+              <button data-call-type="<%= call_type.name %>" class="card card--wide btn-toggle btn-call-type"><%= call_type.name %></button>
             </div>
           <% end %>
         </div>
 
         <p>Campaign:</p>
-        
+
         <div class="row" data-container="call-type">
           <% @campaigns.each do |campaign| %>
             <div class="col-4">
-              <button data-campaign="<%= campaign.name %>" class="card btn-toggle btn-campaign"><%= campaign.name %></button>
+              <button data-campaign="<%= campaign.name %>" class="card card--wide btn-toggle btn-campaign"><%= campaign.name %></button>
             </div>
           <% end %>
         </div>
