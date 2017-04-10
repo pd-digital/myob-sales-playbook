@@ -2,7 +2,7 @@ language: ruby
 script:
   - bin/rake db:create db:migrate RAILS_ENV=test
   - bin/rake
-  - bin/rake assets:precompile"
+  - bin/rake assets:precompile
 deploy:
   provider: heroku
   api_key:
