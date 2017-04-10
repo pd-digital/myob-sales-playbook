@@ -4,7 +4,7 @@
 
     <div class="row" data-container="client-type">
       <% @client_types.each do |client_type| %>
-        <div class="col-4">
+        <div class="col-3">
           <button data-client-type="<%= client_type.key %>" class="card btn-toggle btn-client-type"><%= client_type.name %></button>
         </div>
       <% end %>
