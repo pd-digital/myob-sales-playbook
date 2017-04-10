@@ -10,10 +10,17 @@
   text-align: center;
 }
 
+.btn.btn--secondary {
+  background-color: #687480;
+  border-color: #687480;
+}
+
 .btn + .btn {
   margin-left: 10px;
 }
 
-a[disabled="disabled"] {
+.btn[disabled="disabled"] {
   color: #cccccc;
+  cursor: default;
+  opacity: 0.4;
 }

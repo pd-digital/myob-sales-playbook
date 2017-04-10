@@ -25,10 +25,10 @@ main {
   margin-bottom: 22px;
 }
 
-.page-controls {
-  float: right;
-}
-
 .sidebar {
   margin-top: 1rem !important;
+}
+
+.footer {
+  min-height: 50px;
 }

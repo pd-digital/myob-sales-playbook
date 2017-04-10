@@ -1,13 +1,17 @@
-<hr>
+<div class="footer">
+  <div class="container">
+    <div class="page-controls">
+      <% if prev_page_link.present? %>
+        <%= link_to 'BACK', prev_page_link, class: 'btn btn--secondary prev' %>
+      <% end %>
 
-<div class="container">
-  <div class="page-controls">
-    <% if prev_page_link.present? %>
-      <%= link_to '< PREV', prev_page_link, class: 'prev' %>
-    <% end %>
-
-    <% if next_page_link.present? %>
-      <%= link_to 'NEXT >', next_page_link, class: 'next' %>
-    <% end %>
+      <% if next_page_link.present? %>
+        <% if next_page_link == root_path %>
+          <%= link_to 'FINISH', next_page_link, class: 'btn next', 'data-reset-link': '' %>
+        <% else %>
+          <%= link_to 'NEXT', next_page_link, class: 'btn next' %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
