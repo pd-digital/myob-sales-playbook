@@ -1,0 +1,90 @@
+.product .product__head,
+.product .product__body {
+  padding: 16px 14px;
+}
+
+.product .product__head {
+  border-radius: 4px 4px 0 0;
+  text-align: center;
+  background-color: #2e3e4f;
+  color: #fff;
+}
+
+.product.product--recommended .product__head {
+  border-radius: 0;
+  background-color: #171f28;
+}
+
+.product .product__recommend {
+  background-color: #00aa65;
+  color: #fff;
+  border-radius: 4px 4px 0 0;
+  font-size: 9px;
+  text-align: center;
+  padding: 6px 4px;
+  visibility: hidden;
+}
+
+.product.product--recommended .product__recommend {
+  visibility: visible;
+}
+
+.product .product__description {
+  margin: 0 auto;
+}
+
+.product.product--essentials .product__description {
+  max-width: 145px;
+}
+
+.product.product--accountright .product__description {
+  max-width: 160px;
+}
+
+.product.product--accountedge .product__description {
+  max-width: 160px;
+}
+
+.product .product__body {
+  border-radius: 0 0 4px 4px;
+  background-color: #fff;
+}
+
+.product.product--essentials .product__body {
+  min-height: 280px;
+}
+
+.product.product--accountright .product__body {
+  min-height: 280px;
+}
+
+.product.product--accountedge .product__body {
+  min-height: 360px;
+}
+
+.product .product__body ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.product .product__body ul li + li {
+  margin-top: 10px;
+}
+
+
+.product .product__price {
+  font-size: 48px;
+}
+
+.product .product__dollar {
+  position: relative;
+  top: -5px;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+.product .product__permonth {
+  vertical-align: initial;
+  font-size: 12px;
+}

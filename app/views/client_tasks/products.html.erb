@@ -1,7 +1,7 @@
 <main>
   <div class="container">
-    <p class="page-instruction">Choose your product:</p>
-    
+    <p class="page-instruction">Choose your product thats features best match the client needs</p>
+
     <div class="tab-group">
     <% @products.each do |product| %>
       <button data-id="<%= product.id %>" data-product="<%= product.name.downcase %>" class="tab__item btn-toggle btn-product"><%= product.name %></button>
