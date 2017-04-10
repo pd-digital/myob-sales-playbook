@@ -1,21 +1,26 @@
 <main>
   <div class="container">
-    <div class="row">
+    <p class="page-instruction">Choose your product:</p>
+    
+    <div class="tab-group">
     <% @products.each do |product| %>
-      <button data-id="<%= product.id %>" data-product="<%= product.name.downcase %>" class="tab btn-toggle btn-product"><%= product.name %></button>
+      <button data-id="<%= product.id %>" data-product="<%= product.name.downcase %>" class="tab__item btn-toggle btn-product"><%= product.name %></button>
     <% end %>
+    </div>
 
-    <table class="benefits-table">
-      <tbody>
+    <table class="benefits">
+      <thead>
         <tr>
           <th>Client Task</th>
           <th>Feature</th>
           <th>Description</th>
         </tr>
+      </thead>
+      <tbody>
       <% @client_tasks.each do |client_task| %>
         <tr>
-          <td><%= client_task[:client_task].name %></td>
-          <td><%= client_task[:feature].name %></td>
+          <td class="benefits__title"><%= client_task[:client_task].name %></td>
+          <td class="benefits__title"><%= client_task[:feature].name %></td>
 
           <% @products.each do |product| %>
           <% match = false %>
@@ -49,8 +54,3 @@
 </main>
 
 <%= render partial: "footer", locals: { prev_page_link: client_tasks_path, next_page_link: products_path } %>
-
-<style>
-  .product-toggle.active { border: 1px solid pink; }
-  .benefits-table td { border-top: 1px solid #666; padding: 2px 10px; }
-</style>

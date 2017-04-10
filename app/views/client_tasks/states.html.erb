@@ -1,6 +1,6 @@
 <main>
   <div class="container">
-    <p class="page-instruction">Something something...</p>
+    <p class="page-instruction">Assess the current and future state of their topics:</p>
 
     <div class="row">
       <div class="col-9">
@@ -17,7 +17,7 @@
               <div><%= String(client_task.current_state).html_safe %></div>
               <% end %>
             </div>
-            
+
             <div>
               <label><strong>Future state</strong></label>
               <% if current_user.is_admin? %>
