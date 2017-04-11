@@ -7,7 +7,7 @@
         <div class="row">
           <% @client_tasks.each do |client_task| %>
           <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="col-4 card client-task">
-            <p><strong><%= client_task.name %></strong></p>
+            <p class="card__title"><strong><%= client_task.name %></strong></p>
             <div class="card__body">
               <% if current_user.is_admin? %>
               <textarea data-questions style="width: 100%;"><%= client_task.questions %></textarea>
