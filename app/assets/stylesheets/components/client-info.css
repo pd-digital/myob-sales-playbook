@@ -5,13 +5,12 @@
 }
 
 .client-info .client-info__title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
 }
 
 .client-info .client-info__list-title {
-  color: #8648ac;
-  font-weight: bold;
+  color: #8648ac; 
 }
 
 .client-info__list-title + .client-info__list-title {

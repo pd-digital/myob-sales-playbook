@@ -6,7 +6,6 @@ html {
 }
 
 body {
-  max-width: 960px;
   margin: 0 auto;
   background-color: #f3f4f5;
 }
@@ -31,4 +30,7 @@ main {
 
 .footer {
   min-height: 50px;
+}
+.container{
+  max-width: 80rem;
 }
