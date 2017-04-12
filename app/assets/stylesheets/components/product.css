@@ -34,15 +34,15 @@
 }
 
 .product.product--essentials .product__description {
-  max-width: 145px;
+  max-width: 170px;
 }
 
 .product.product--accountright .product__description {
-  max-width: 160px;
+  max-width: 200px;
 }
 
 .product.product--accountedge .product__description {
-  max-width: 160px;
+  max-width: 180px;
 }
 
 .product .product__body {

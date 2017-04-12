@@ -4,7 +4,7 @@
 
     <div class="row" data-container="team">
       <% @teams.each do |team| %>
-        <div class="col-3">
+        <div class="col-xs-3">
           <button data-team="<%= team.name %>" class="card card--wide btn-toggle btn-team"><%= team.name %></button>
         </div>
       <% end %>

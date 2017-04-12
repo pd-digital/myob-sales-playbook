@@ -3,24 +3,26 @@
     <p class="page-instruction">Focus on the task and find a need that MYOB can help them with:</p>
 
     <div class="row">
-      <div class="col-9">
+      <div class="col-xs-9">
         <div class="row">
           <% @client_tasks.each do |client_task| %>
-          <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="col-4 card client-task">
-            <p class="card__title"><strong><%= client_task.name %></strong></p>
-            <div class="card__body">
-              <% if current_user.is_admin? %>
-              <textarea data-questions style="width: 100%;"><%= client_task.questions %></textarea>
-              <% else %>
-              <div><%= String(client_task.questions).html_safe %></div>
-              <% end %>
+          <div class="col-xs-4">
+            <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="card client-task">
+              <p class="card__title"><strong><%= client_task.name %></strong></p>
+              <div class="card__body">
+                <% if current_user.is_admin? %>
+                <textarea data-questions style="width: 100%;"><%= client_task.questions %></textarea>
+                <% else %>
+                <div><%= String(client_task.questions).html_safe %></div>
+                <% end %>
+              </div>
             </div>
           </div>
           <% end %>
         </div>
       </div>
 
-      <div class="col-3 sidebar">
+      <div class="col-xs-3 sidebar">
         <%= render 'shared/client_info' %>
       </div>
     </div>

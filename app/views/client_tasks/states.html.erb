@@ -3,35 +3,37 @@
     <p class="page-instruction">Assess the current and future state of their topics:</p>
 
     <div class="row">
-      <div class="col-9">
+      <div class="col-xs-9">
         <% @client_tasks.each do |client_task| %>
-        <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="col-4 card client-task">
-          <p class="card__title"><%= client_task.name %></p>
+        <div class="col-xs-4">
+          <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="card client-task">
+            <p class="card__title"><%= client_task.name %></p>
 
-          <div class="card__body">
-            <div>
-              <label><strong>Curent state</strong></label>
-              <% if current_user.is_admin? %>
-              <textarea data-current-state style="width: 100%;"><%= client_task.current_state %></textarea>
-              <% else %>
-              <div><%= String(client_task.current_state).html_safe %></div>
-              <% end %>
-            </div>
+            <div class="card__body">
+              <div>
+                <label><strong>Curent state</strong></label>
+                <% if current_user.is_admin? %>
+                <textarea data-current-state style="width: 100%;"><%= client_task.current_state %></textarea>
+                <% else %>
+                <div><%= String(client_task.current_state).html_safe %></div>
+                <% end %>
+              </div>
 
-            <div>
-              <label><strong>Future state</strong></label>
-              <% if current_user.is_admin? %>
-              <textarea data-future-state style="width: 100%;"><%= client_task.future_state %></textarea>
-              <% else %>
-              <div><%= String(client_task.future_state).html_safe %></div>
-              <% end %>
+              <div>
+                <label><strong>Future state</strong></label>
+                <% if current_user.is_admin? %>
+                <textarea data-future-state style="width: 100%;"><%= client_task.future_state %></textarea>
+                <% else %>
+                <div><%= String(client_task.future_state).html_safe %></div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
         <% end %>
       </div>
 
-      <div class="col-3 sidebar">
+      <div class="col-xs-3 sidebar">
         <%= render 'shared/client_info' %>
       </div>
     </div>
