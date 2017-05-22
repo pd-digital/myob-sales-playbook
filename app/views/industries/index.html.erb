@@ -1,3 +1,5 @@
+<% title 'Mission Active' %>
+
 <main>
   <div class="container">
     <p class="page-instruction">What does your client do?</p>
@@ -7,7 +9,7 @@
         <div class="row">
           <% @client_types.each do |client_type| %>
           <div class="col-xs-4">
-            <button data-client-type="<%= client_type.name %>" class="card card--wide btn-toggle btn-client-type"><%= client_type.name %></button>
+            <button data-client-type="<%= client_type.name %>" class="card card--wide btn-toggle"><%= client_type.name %></button>
           </div>
           <% end %>
         </div>

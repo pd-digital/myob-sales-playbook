@@ -126,7 +126,7 @@ MSP.Toggler = function() {
 
   return {
     init: function(options) {
-      togglesSelector = '.btn-' + options.key
+      togglesSelector = `[data-${options.key}]`
       dataKey = 'data-' + options.key
       localStorageKey = options.key
       count = options.count || 1

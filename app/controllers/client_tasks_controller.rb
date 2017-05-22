@@ -1,6 +1,6 @@
 class ClientTasksController < ApplicationController
   def index
-    @client_tasks = ClientTask.all.order(:id)
+    @client_tasks = ClientTask.all.order(:name)
   end
 
   def questions

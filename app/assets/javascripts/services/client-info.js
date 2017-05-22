@@ -6,12 +6,8 @@ MSP.ClientInfo = function() {
       title: 'Team'
     },
     {
-      key: 'call-type',
-      title: 'Call type'
-    },
-    {
-      key: 'campaign',
-      title: 'Campaign'
+      key: 'call-type-or-campaign',
+      title: 'Call type/Campaign'
     },
     {
       key: 'client-type',
