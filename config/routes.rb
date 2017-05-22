@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   resources :call_types_and_campaigns, only: [:index]
   resources :industries, only: [:index]
   resources :discovery_questions, only: [:update]
-  resources :client_tasks, only: [:index] do
+  resources :client_tasks, only: [:index, :update] do
     get 'questions', on: :member
-    put 'questions', to: 'client_tasks#update_questions', on: :collection
     get 'states', on: :member
     put 'states', to: 'client_tasks#update_states', on: :collection
     get 'products', on: :member

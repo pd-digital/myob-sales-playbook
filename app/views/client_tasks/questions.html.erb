@@ -7,16 +7,7 @@
         <div class="row">
           <% @client_tasks.each do |client_task| %>
           <div class="col-xs-4">
-            <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="card client-task">
-              <p class="card__title"><strong><%= client_task.name %></strong></p>
-              <div class="card__body">
-                <% if current_user.is_admin? %>
-                <textarea data-questions style="width: 100%;"><%= client_task.questions %></textarea>
-                <% else %>
-                <div><%= String(client_task.questions).html_safe %></div>
-                <% end %>
-              </div>
-            </div>
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'data-client-tasks', resource: client_task }%>
           </div>
           <% end %>
         </div>
@@ -26,10 +17,6 @@
         <%= render 'shared/client_info' %>
       </div>
     </div>
-
-    <% if current_user.is_admin? %>
-    <button id="save-client-task-questions">SAVE</button>
-    <% end %>
   </div>
 </main>
 

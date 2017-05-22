@@ -14,6 +14,21 @@ class ClientTasksController < ApplicationController
     @client_tasks = ClientTask.where(key: keys).order(:id)
   end
 
+  def update
+    if current_user.is_admin?
+      client_task = ClientTask.find(params[:id])
+      client_task.questions = params[:data] if params[:data]
+      client_task.current_state = params[:currentState] if params[:currentState]
+      client_task.future_state = params[:futureState] if params[:futureState]
+      client_task.save
+
+      render json: client_task.to_json
+    else
+      render_unauthorized
+    end
+  end
+
+  # TODO - should this be under products?
   def products
     keys = params[:id].split(',')
     client_benefits = ClientBenefit.joins(product_feature: [:client_task]).where('client_tasks.key IN (?)', keys).order(:id)
@@ -32,24 +47,6 @@ class ClientTasksController < ApplicationController
           }
         end
       }
-    end
-  end
-
-  def update_questions
-    if current_user.is_admin?
-      client_tasks = params[:clientTasks]
-      Rails.logger.info(client_tasks)
-      client_tasks.each do |t|
-        client_task = ClientTask.find_by(key: t[:key])
-        client_task.name = t[:name]
-        client_task.questions = t[:questions]
-        client_task.save
-      end
-
-      response_json = ClientTask.where(key: client_tasks.map{ |t| t[:key] }).select(:name, :key, :questions)
-      render json: { clientTasks: response_json }.to_json
-    else
-      render_unauthorized
     end
   end
 
@@ -87,11 +84,5 @@ class ClientTasksController < ApplicationController
     else
       render_unauthorized
     end
-  end
-
-  private
-
-  def render_unauthorized
-    render json: { error: 'unauthorized' }, status: :unauthorized
   end
 end
