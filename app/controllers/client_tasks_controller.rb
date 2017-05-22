@@ -1,6 +1,7 @@
 class ClientTasksController < ApplicationController
   def index
     @client_tasks = ClientTask.all.order(:name)
+    @discovery_questions = DiscoveryQuestion.all.order(:id)
   end
 
   def questions

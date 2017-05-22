@@ -17,9 +17,21 @@
         <p>Mission Brief guidelines:</p>
 
         <div class="row">
+          <% @discovery_questions.each do |discovery_question| %>
           <div class="col-xs-4">
-            <p>BANANA</p>
+            <div data-discovery-question data-id="<%= discovery_question.id %>" data-name="<%= discovery_question.name %>" class="card">
+              <p class="card__title"><strong><%= discovery_question.name %></strong></p>
+              <div class="card__body">
+                <% if current_user.is_admin? %>
+                <textarea data-questions style="width: 100%;"><%= discovery_question.questions %></textarea>
+                <button data-action='save'>SAVE</button>
+                <% else %>
+                <div><%= String(discovery_question.questions).html_safe %></div>
+                <% end %>
+              </div>
+            </div>
           </div>
+          <% end %>
         </div>
       </div>
 

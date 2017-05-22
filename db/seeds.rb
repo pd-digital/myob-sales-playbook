@@ -47,6 +47,10 @@ ClientTask.create(name: 'Managing Stock & Supplies', key:'managing-stock-and-sup
 ClientTask.create(name: 'Managing Tax', key:'managing-tax', product_feature: bank_feeds)
 ClientTask.create(name: 'Quoting', key:'quoting', product_feature: nil)
 
+# Discovery questions
+DiscoveryQuestion.create(name: 'Client Discovery')
+DiscoveryQuestion.create(name: 'Software Discovery')
+
 # Client Benefits, only need 1 for each feature
 ClientBenefit.create(product: accountRight, product_feature: sales)
 ClientBenefit.create(product: accountRight, product_feature: payroll)
