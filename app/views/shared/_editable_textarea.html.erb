@@ -1,11 +1,11 @@
-<div <%= key %> data-id="<%= resource.id %>" data-name="<%= resource.name %>" class="card">
+<div <%= key %> data-id="<%= resource.id %>" data-name="<%= resource.name %>" data-attr="<%= key2 %>" class="card">
   <p class="card__title"><strong><%= resource.name %></strong></p>
   <div class="card__body">
     <% if current_user.is_admin? %>
-    <textarea data-trumbowyg data-questions style="width: 100%;"><%= resource.questions %></textarea>
+    <textarea data-trumbowyg data-questions style="width: 100%;"><%= data %></textarea>
     <button data-action='save'>SAVE</button>
     <% else %>
-    <div><%= String(resource.questions).html_safe %></div>
+    <div><%= String(data).html_safe %></div>
     <% end %>
   </div>
 </div>

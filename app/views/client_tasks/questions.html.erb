@@ -7,7 +7,15 @@
         <div class="row">
           <% @client_tasks.each do |client_task| %>
           <div class="col-xs-4">
-            <%= render partial: 'shared/editable_textarea', locals: { key: 'data-client-tasks', resource: client_task }%>
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'data-client-tasks', key2: 'questions', resource: client_task, data: client_task.questions }%>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="row">
+          <% @client_tasks.each do |client_task| %>
+          <div class="col-xs-4">
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'data-client-tasks', key2: 'info', resource: client_task, data: client_task.info }%>
           </div>
           <% end %>
         </div>

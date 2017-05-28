@@ -17,7 +17,8 @@ class ClientTasksController < ApplicationController
   def update
     if current_user.is_admin?
       client_task = ClientTask.find(params[:id])
-      client_task.questions = params[:data] if params[:data]
+      client_task.questions = params[:questions] if params[:questions]
+      client_task.info = params[:info] if params[:info]
       client_task.current_state = params[:currentState] if params[:currentState]
       client_task.future_state = params[:futureState] if params[:futureState]
       client_task.save

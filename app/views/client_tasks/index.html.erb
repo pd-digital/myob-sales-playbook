@@ -19,7 +19,7 @@
         <div class="row">
           <% @discovery_questions.each do |discovery_question| %>
           <div class="col-xs-4">
-            <%= render partial: 'shared/editable_textarea', locals: { key: 'data-discovery-questions', resource: discovery_question }%>
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'data-discovery-questions', resource: discovery_question, data: discovery_question.questions }%>
           </div>
           <% end %>
         </div>

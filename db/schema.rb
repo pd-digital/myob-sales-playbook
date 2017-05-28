@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522100938) do
+ActiveRecord::Schema.define(version: 20170528082529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170522100938) do
     t.text     "current_state"
     t.text     "future_state"
     t.integer  "product_feature_id"
+    t.text     "info"
     t.index ["key"], name: "index_client_tasks_on_key", unique: true, using: :btree
   end
 
