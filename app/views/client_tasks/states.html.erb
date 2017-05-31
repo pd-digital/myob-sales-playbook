@@ -2,63 +2,45 @@
   <div class="container">
     <p class="page-instruction">Assess the current and future state of their topics:</p>
 
-    <div class="row">
-      <div class="col-xs-9">
-        <br>
-        <p>CURRENT STATE</p>
-        <div class="row">
-          <% @client_tasks.each do |client_task| %>
-          <div class="col-xs-4">
-            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'current_state', resource: client_task, data: client_task.current_state }%>
-          </div>
-          <% end %>
-        </div>
+    <div class="tab-group">
+    <% @products.each do |product| %>
+      <button data-id="<%= product.id %>" data-product="<%= product.name.downcase %>" class="tab__item btn-toggle btn-product"><%= product.name %></button>
+    <% end %>
+    </div>
 
-        <br>
-        <p>FUTURE STATE</p>
-        <div class="row">
-          <% @client_tasks.each do |client_task| %>
-          <div class="col-xs-4">
-            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'future_state', resource: client_task, data: client_task.future_state }%>
-          </div>
-          <% end %>
-        </div>
+    <% @client_tasks.each do |client_task, product_task_details| %>
+    <br>
+    <p><%= client_task.name %></p>
 
-        <br>
-        <p>Insights</p>
-        <div class="row">
-          <% @client_tasks.each do |client_task| %>
-          <div class="col-xs-4">
-            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'insights', resource: client_task, data: client_task.insights }%>
-          </div>
-          <% end %>
-        </div>
-
-        <br>
-        <p>Feature</p>
-        <div class="row">
-          <% @client_tasks.each do |client_task| %>
-          <div class="col-xs-4">
-            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'features', resource: client_task, data: client_task.features }%>
-          </div>
-          <% end %>
-        </div>
-
-        <br>
-        <p>Benefit</p>
-        <div class="row">
-          <% @client_tasks.each do |client_task| %>
-          <div class="col-xs-4">
-            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'benefits', resource: client_task, data: client_task.benefits }%>
-          </div>
-          <% end %>
-        </div>
+    <% product_task_details.each do |product_task_detail| %>
+    <div class="row product-row product-row--<%= product_task_detail.product.name.downcase %>">
+      <div class="col-xs-2">
+        <small><%= product_task_detail.product.name.downcase %></small>
+        <%= render partial: 'shared/editable_textarea', locals: { name: 'Current State', key: 'product-task-details', attr: 'current_state', resource: product_task_detail, data: product_task_detail.current_state }%>
       </div>
 
-      <div class="col-xs-3 sidebar">
-        <%= render 'shared/client_info' %>
+      <div class="col-xs-2">
+        <small><%= product_task_detail.product.name.downcase %></small>
+        <%= render partial: 'shared/editable_textarea', locals: { name: 'Future State', key: 'product-task-details', attr: 'future_state', resource: product_task_detail, data: product_task_detail.future_state }%>
+      </div>
+
+      <div class="col-xs-2">
+        <small><%= product_task_detail.product.name.downcase %></small>
+        <%= render partial: 'shared/editable_textarea', locals: { name: 'Insights', key: 'product-task-details', attr: 'insights', resource: product_task_detail, data: product_task_detail.insights }%>
+      </div>
+
+      <div class="col-xs-2">
+        <small><%= product_task_detail.product.name.downcase %></small>
+        <%= render partial: 'shared/editable_textarea', locals: { name: 'Features', key: 'product-task-details', attr: 'features', resource: product_task_detail, data: product_task_detail.features }%>
+      </div>
+
+      <div class="col-xs-2">
+        <small><%= product_task_detail.product.name.downcase %></small>
+        <%= render partial: 'shared/editable_textarea', locals: { name: 'Benefits', key: 'product-task-details', attr: 'benefits', resource: product_task_detail, data: product_task_detail.benefits }%>
       </div>
     </div>
+    <% end %>
+  <% end %>
   </div>
 </main>
 

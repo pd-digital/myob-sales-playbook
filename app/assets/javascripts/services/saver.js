@@ -18,13 +18,13 @@ MSP.EnableSaveButtons = function() {
 
   // Private
   var url = function($card) {
-    var resourceName = $card.data('resource').replace(/-/, '_')
+    var resourceName = $card.data('resource').replace(/-/g, '_')
     var resourceId = $card.data('resource-id')
     return '/' + [resourceName, resourceId].join('/')
   }
 
   var resourceName = function($card) {
-    return $card.data('resource').replace(/-/, '_')
+    return $card.data('resource').replace(/-/g, '_')
   }
 
   var data = function($card) {

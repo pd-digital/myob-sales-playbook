@@ -8,48 +8,23 @@
     <% end %>
     </div>
 
-    <table class="benefits">
-      <thead>
-        <tr>
-          <th>Client Task</th>
-          <th>Feature</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @client_tasks.each do |client_task| %>
-        <tr>
-          <td class="benefits__title"><%= client_task[:client_task].name %></td>
-          <td class="benefits__title"><%= client_task[:feature].name %></td>
-
-          <% @products.each do |product| %>
-          <% match = false %>
-          <td class="desc <%= product.name.downcase %>">
-            <% client_task[:benefits].each do |description| %>
-            <% if product.name.downcase == description[:product].name.downcase %>
-            <% match = true %>
-            <% if current_user.is_admin? %>
-            <textarea data-id="<%= description[:id] %>" data-product-id="<%= description[:product].id %>"  data-feature-id="<%= client_task[:feature].id %>" class="client-benefit" style="width: 100%;"><%= description[:benefits] %></textarea>
-            <% else %>
-            <div><%= String(description[:benefits]).html_safe %></div>
-            <% end %>
-            <% end %>
-            <% end %>
-
-            <% if !match && current_user.is_admin? %>
-            <textarea data-product-id="<%= product.id %>" data-feature-id="<%= client_task[:feature].id %>" class="client-benefit" style="width: 100%;"></textarea>
-            <% end %>
-          </td>
+    <div class="row">
+      <div class="col-xs-9">
+        <br>
+        <p>QUESTIONS</p>
+        <div class="row">
+          <% @client_tasks.each do |client_task| %>
+          <div class="col-xs-4">
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'features', resource: client_task, data: client_task.features }%>
+          </div>
           <% end %>
+        </div>
+      </div>
 
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-
-    <% if current_user.is_admin? %>
-    <button id="save-client-benefits">SAVE</button>
-    <% end %>
+      <div class="col-xs-3 sidebar">
+        <%= render 'shared/client_info' %>
+      </div>
+    </div>
   </div>
 </main>
 

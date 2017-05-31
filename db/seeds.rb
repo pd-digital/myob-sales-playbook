@@ -20,44 +20,31 @@ ClientType.create(name: 'Hospitality', key: 'hospitality')
 ClientType.create(name: 'Retail and Manufacturing', key: 'retail-and-manufacturing')
 ClientType.create(name: 'Professional Services', key: 'professional-services')
 
-# Products
-essentials = Product.create(name: 'Essentials')
-accountRight = Product.create(name: 'AccountRight')
-accountEdge = Product.create(name: 'AccountEdge')
-
-# Product Features
-sales = ProductFeature.create(name: 'Sales')
-payroll = ProductFeature.create(name: 'Payroll')
-bank_feeds = ProductFeature.create(name: 'Bank feeds')
-time_sheets_time_billing = ProductFeature.create(name: 'Time Sheets/Time Billing')
-purchases_smart_bills = ProductFeature.create(name: 'Purchases, Smart Bills')
-banking_smart_bills = ProductFeature.create(name: 'Banking, Smart Bills')
-manage_inventory = ProductFeature.create(name: 'Manage Inventory')
-manage_purchases = ProductFeature.create(name: 'Manage Purchases')
-bank_feeds_2 = ProductFeature.create(name: 'Bank feeds')
-
-# Client tasks
-ClientTask.create(name: 'Banking', key:'banking', product_feature: bank_feeds_2)
-ClientTask.create(name: 'Business Expenses', key:'business-expenses', product_feature: purchases_smart_bills)
-ClientTask.create(name: 'Invoicing', key:'invoicing', product_feature: sales)
-ClientTask.create(name: 'Managing Cash Flow', key:'managing-cash-flow', product_feature: banking_smart_bills)
-ClientTask.create(name: 'Managing Projects & Jobs', key:'managing-projects-and-jobs', product_feature: nil)
-ClientTask.create(name: 'Managing Staff & Payroll', key:'managing-staff-and-payroll', product_feature: payroll)
-ClientTask.create(name: 'Managing Stock & Supplies', key:'managing-stock-and-suplliers', product_feature: manage_inventory)
-ClientTask.create(name: 'Managing Tax', key:'managing-tax', product_feature: bank_feeds)
-ClientTask.create(name: 'Quoting', key:'quoting', product_feature: nil)
-
 # Discovery questions
 DiscoveryQuestion.create(name: 'Client Discovery')
 DiscoveryQuestion.create(name: 'Software Discovery')
 
-# Client Benefits, only need 1 for each feature
-ClientBenefit.create(product: accountRight, product_feature: sales)
-ClientBenefit.create(product: accountRight, product_feature: payroll)
-ClientBenefit.create(product: accountRight, product_feature: bank_feeds)
-ClientBenefit.create(product: accountRight, product_feature: time_sheets_time_billing)
-ClientBenefit.create(product: accountRight, product_feature: purchases_smart_bills)
-ClientBenefit.create(product: accountRight, product_feature: banking_smart_bills)
-ClientBenefit.create(product: accountRight, product_feature: manage_inventory)
-ClientBenefit.create(product: accountRight, product_feature: manage_purchases)
-ClientBenefit.create(product: accountRight, product_feature: bank_feeds_2)
+# Products
+essentials = Product.create(name: 'Essentials')
+account_right = Product.create(name: 'AccountRight')
+account_edge = Product.create(name: 'AccountEdge')
+products = [essentials, account_right, account_edge]
+
+# Client tasks
+banking = ClientTask.create(name: 'Banking', key:'banking')
+business_expenses = ClientTask.create(name: 'Business Expenses', key:'business-expenses')
+invoicing = ClientTask.create(name: 'Invoicing', key:'invoicing')
+managing_cash_flow = ClientTask.create(name: 'Managing Cash Flow', key:'managing-cash-flow')
+managing_projects_and_jobs = ClientTask.create(name: 'Managing Projects & Jobs', key:'managing-projects-and-jobs')
+managing_staff_and_payroll = ClientTask.create(name: 'Managing Staff & Payroll', key:'managing-staff-and-payroll')
+managing_stock_and_suplliers = ClientTask.create(name: 'Managing Stock & Supplies', key:'managing-stock-and-suplliers')
+managing_tax = ClientTask.create(name: 'Managing Tax', key:'managing-tax')
+quoting = ClientTask.create(name: 'Quoting', key:'quoting')
+client_tasks = [banking, business_expenses, invoicing, managing_cash_flow, managing_projects_and_jobs, managing_staff_and_payroll, managing_stock_and_suplliers, managing_tax, quoting]
+
+# Product/Client task details
+client_tasks.each do |client_task|
+  products.each do |product|
+    ProductTaskDetail.create(product_id: product.id, client_task_id: client_task.id)
+  end
+end

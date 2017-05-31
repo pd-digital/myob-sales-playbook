@@ -18,4 +18,13 @@ $(document).ready(function() {
     var originalNextHref = $('.next').attr('href')
     $('.next').attr('href', originalNextHref + '/' + keys.join(',') + '/products')
   }
+
+  // TODO: SOME Cray cray tab stuff
+  $('.product-row').hide()
+  $('.product-row--essentials').show()
+  $('.tab__item').on('click', function() {
+    var productName = $(this).data('product')
+    $('.product-row').hide()
+    $('.product-row--' + productName).show()
+  })
 })
