@@ -1,37 +1,40 @@
-// TODO - step 1 here is to fix up the resource attributes to pass in
-//        clearer data params, resource-name, resource-attr, resource-val
+MSP.EnableSaveButtons = function() {
+  var saveButtonSelector = '[data-action="save"]'
+  var dataValueSelector = '[data-value]'
 
-MSP.EnableSaveButtons = function(options) {
-  var SAVE_BUTTON_SELECTOR = '[data-action="save"]'
-  var DATA_BODY_SELECTOR = '[data-questions]'
-  var key = options.key
-  var resourceSelector = '[' + key + ']'
-  var pluralResourceName = key.replace(/data-/, '')
-
-  var url = function(resource) {
-    var url = []
-    url.push(key.replace(/data-/, '').replace(/-/, '_'))
-    url.push(resource.attr('data-id'))
-    return '/' + url.join('/')
-  }
-
-  var data = function(resource) {
-    var data = {}
-    data[resource.data('attr')] = resource.find(DATA_BODY_SELECTOR).val()
-    return data
-  }
-
-  $(SAVE_BUTTON_SELECTOR).on('click', function() {
-    var resource = $(this).parents(resourceSelector)
+  $(saveButtonSelector).on('click', function() {
+    $card = $(this).parents('[data-card]')
 
     $.ajax({
-      url: url(resource),
+      url: url($card),
       method: 'PUT',
-      data: JSON.stringify(data(resource)),
+      data: data($card),
       contentType: 'application/json; charset=utf-8',
       success: function(data) {
         console.log(data)
       }
     })
   })
+
+  // Private
+  var url = function($card) {
+    var resourceName = $card.data('resource').replace(/-/, '_')
+    var resourceId = $card.data('resource-id')
+    return '/' + [resourceName, resourceId].join('/')
+  }
+
+  var resourceName = function($card) {
+    return $card.data('resource').replace(/-/, '_')
+  }
+
+  var data = function($card) {
+    var attr = $card.data('attr')
+    var val = $card.find(dataValueSelector).val()
+    var rawData = {
+      [resourceName($card)]: {
+        [attr]: val
+      }
+    }
+    return JSON.stringify(rawData)
+  }
 }

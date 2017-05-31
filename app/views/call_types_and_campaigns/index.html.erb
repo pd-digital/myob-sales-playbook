@@ -9,7 +9,7 @@
         <div class="row">
           <% @call_types.each do |call_type| %>
             <div class="col-xs-4">
-              <button data-call-type-or-campaign="<%= call_type.name %>" class="card card--wide btn-toggle"><%= call_type.name %></button>
+              <button data-call-type-or-campaign="<%= call_type.key %>" class="card card--wide btn-toggle"><%= call_type.name %></button>
             </div>
           <% end %>
         </div>
@@ -19,7 +19,7 @@
         <div class="row">
           <% @campaigns.each do |campaign| %>
             <div class="col-xs-4">
-              <button data-call-type-or-campaign="<%= campaign.name %>" class="card card--wide btn-toggle"><%= campaign.name %></button>
+              <button data-call-type-or-campaign="<%= campaign.key %>" class="card card--wide btn-toggle"><%= campaign.name %></button>
             </div>
           <% end %>
         </div>

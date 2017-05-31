@@ -17,10 +17,13 @@ class ClientTasksController < ApplicationController
   def update
     if current_user.is_admin?
       client_task = ClientTask.find(params[:id])
-      client_task.questions = params[:questions] if params[:questions]
-      client_task.info = params[:info] if params[:info]
-      client_task.current_state = params[:currentState] if params[:currentState]
-      client_task.future_state = params[:futureState] if params[:futureState]
+      client_task.questions = client_task_param[:questions] if client_task_param[:questions]
+      client_task.info = client_task_param[:info] if client_task_param[:info]
+      client_task.current_state = client_task_param[:current_state] if client_task_param[:current_state]
+      client_task.future_state = client_task_param[:future_state] if client_task_param[:future_state]
+      client_task.insights = client_task_param[:insights] if client_task_param[:insights]
+      client_task.features = client_task_param[:features] if client_task_param[:features]
+      client_task.benefits = client_task_param[:benefits] if client_task_param[:benefits]
       client_task.save
 
       render json: client_task.to_json
@@ -85,5 +88,10 @@ class ClientTasksController < ApplicationController
     else
       render_unauthorized
     end
+  end
+
+  private
+  def client_task_param
+    @client_task_param ||= params[:client_tasks] || {}
   end
 end

@@ -4,43 +4,61 @@
 
     <div class="row">
       <div class="col-xs-9">
-        <% @client_tasks.each do |client_task| %>
-        <div class="col-xs-4">
-          <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="card client-task">
-            <p class="card__title"><%= client_task.name %></p>
-
-            <div class="card__body">
-              <div>
-                <label><strong>Curent state</strong></label>
-                <% if current_user.is_admin? %>
-                <textarea data-current-state style="width: 100%;"><%= client_task.current_state %></textarea>
-                <% else %>
-                <div><%= String(client_task.current_state).html_safe %></div>
-                <% end %>
-              </div>
-
-              <div>
-                <label><strong>Future state</strong></label>
-                <% if current_user.is_admin? %>
-                <textarea data-future-state style="width: 100%;"><%= client_task.future_state %></textarea>
-                <% else %>
-                <div><%= String(client_task.future_state).html_safe %></div>
-                <% end %>
-              </div>
-            </div>
+        <br>
+        <p>CURRENT STATE</p>
+        <div class="row">
+          <% @client_tasks.each do |client_task| %>
+          <div class="col-xs-4">
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'current_state', resource: client_task, data: client_task.current_state }%>
           </div>
+          <% end %>
         </div>
-        <% end %>
+
+        <br>
+        <p>FUTURE STATE</p>
+        <div class="row">
+          <% @client_tasks.each do |client_task| %>
+          <div class="col-xs-4">
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'future_state', resource: client_task, data: client_task.future_state }%>
+          </div>
+          <% end %>
+        </div>
+
+        <br>
+        <p>Insights</p>
+        <div class="row">
+          <% @client_tasks.each do |client_task| %>
+          <div class="col-xs-4">
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'insights', resource: client_task, data: client_task.insights }%>
+          </div>
+          <% end %>
+        </div>
+
+        <br>
+        <p>Feature</p>
+        <div class="row">
+          <% @client_tasks.each do |client_task| %>
+          <div class="col-xs-4">
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'features', resource: client_task, data: client_task.features }%>
+          </div>
+          <% end %>
+        </div>
+
+        <br>
+        <p>Benefit</p>
+        <div class="row">
+          <% @client_tasks.each do |client_task| %>
+          <div class="col-xs-4">
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'client-tasks', attr: 'benefits', resource: client_task, data: client_task.benefits }%>
+          </div>
+          <% end %>
+        </div>
       </div>
 
       <div class="col-xs-3 sidebar">
         <%= render 'shared/client_info' %>
       </div>
     </div>
-
-    <% if current_user.is_admin? %>
-    <button id="save-client-task-states">SAVE</button>
-    <% end %>
   </div>
 </main>
 

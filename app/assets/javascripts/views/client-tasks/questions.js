@@ -4,10 +4,8 @@ $(document).ready(function() {
   var CLIENT_TASK_KEY = 'client-task'
   var SAVE_CLIENT_TASK_SELECTOR = '#save-client-task-questions'
 
+  MSP.EnableSaveButtons()
   MSP.ClientInfo().init()
-  MSP.EnableSaveButtons({
-    key: 'data-client-tasks'
-  })
 
   // TODO - this is NOT part of the toggler anymore...
   if (localStorage.getItem(CLIENT_TASK_KEY)) {
