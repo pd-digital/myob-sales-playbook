@@ -10,6 +10,6 @@ $(document).ready(function() {
       return key.toLowerCase().replace(/\s/g, '-').replace(/\//g, '-')
     })
     var originalPrevHref = $('.prev').attr('href')
-    $('.prev').attr('href', originalPrevHref + '/' + keys.join(',') + '/products')
+    $('.prev').attr('href', originalPrevHref + '/' + keys.join(',') + '/states')
   }
 })

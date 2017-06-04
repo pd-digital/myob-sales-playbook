@@ -15,16 +15,20 @@ $(document).ready(function() {
     var originalPrevHref = $('.prev').attr('href')
     $('.prev').attr('href', originalPrevHref + '/' + keys.join(',') + '/questions')
 
-    var originalNextHref = $('.next').attr('href')
-    $('.next').attr('href', originalNextHref + '/' + keys.join(',') + '/products')
+    // var originalNextHref = $('.next').attr('href')
+    // $('.next').attr('href', originalNextHref + '/' + keys.join(',') + '/products')
   }
 
   // TODO: SOME Cray cray tab stuff
+  var originalNextHref = $('.next').attr('href')
   $('.product-row').hide()
   $('.product-row--essentials').show()
+  $('.next').attr('href', originalNextHref + '/essentials')
+
   $('.tab__item').on('click', function() {
     var productName = $(this).data('product')
     $('.product-row').hide()
     $('.product-row--' + productName).show()
+    $('.next').attr('href', originalNextHref + '/' + $(this).data('product'))
   })
 })
