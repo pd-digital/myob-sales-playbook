@@ -23,12 +23,15 @@ $(document).ready(function() {
   var originalNextHref = $('.next').attr('href')
   $('.product-row').hide()
   $('.product-row--essentials').show()
+  $('[data-product="essentials"]').addClass('active')
   $('.next').attr('href', originalNextHref + '/essentials')
 
   $('.tab__item').on('click', function() {
     var productName = $(this).data('product')
     $('.product-row').hide()
     $('.product-row--' + productName).show()
+    $('[data-product]').removeClass('active')
+    $(this).addClass('active')
     $('.next').attr('href', originalNextHref + '/' + $(this).data('product'))
   })
 })
