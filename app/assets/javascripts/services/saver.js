@@ -30,12 +30,10 @@ MSP.EnableSaveButtons = function() {
   var data = function($card) {
     var attr = $card.data('attr')
     var val = $card.find(dataValueSelector).val()
-    var resourceName = getResourceName($card)
-    var rawData = {
-      [resourceName]: {
-        [attr]: val
-      }
-    }
+    var resourceName1 = getResourceName($card)
+    var rawData = {}
+    rawData[resourceName1] = {}
+    rawData[resourceName1][attr] = val
     return JSON.stringify(rawData)
   }
 }
