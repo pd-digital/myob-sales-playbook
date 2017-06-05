@@ -31,16 +31,17 @@ account_edge = Product.create(name: 'AccountEdge')
 products = [essentials, account_right, account_edge]
 
 # Client tasks
-banking = ClientTask.create(name: 'Banking', key:'banking')
-business_expenses = ClientTask.create(name: 'Business Expenses', key:'business-expenses')
-invoicing = ClientTask.create(name: 'Invoicing', key:'invoicing')
-managing_cash_flow = ClientTask.create(name: 'Managing Cash Flow', key:'managing-cash-flow')
-managing_projects_and_jobs = ClientTask.create(name: 'Managing Projects & Jobs', key:'managing-projects-and-jobs')
-managing_staff_and_payroll = ClientTask.create(name: 'Managing Staff & Payroll', key:'managing-staff-and-payroll')
-managing_stock_and_suplliers = ClientTask.create(name: 'Managing Stock & Supplies', key:'managing-stock-and-suplliers')
-managing_tax = ClientTask.create(name: 'Managing Tax', key:'managing-tax')
-quoting = ClientTask.create(name: 'Quoting', key:'quoting')
-client_tasks = [banking, business_expenses, invoicing, managing_cash_flow, managing_projects_and_jobs, managing_staff_and_payroll, managing_stock_and_suplliers, managing_tax, quoting]
+client_tasks = []
+client_tasks << ClientTask.create(name: 'Banking', key:'banking')
+client_tasks << ClientTask.create(name: 'Business Expenses', key:'business-expenses')
+client_tasks << ClientTask.create(name: 'Invoicing', key:'invoicing')
+client_tasks << ClientTask.create(name: 'Managing Cash Flow', key:'managing-cash-flow')
+client_tasks << ClientTask.create(name: 'Managing Projects & Jobs', key:'managing-projects-and-jobs')
+client_tasks << ClientTask.create(name: 'Managing Staff & Payroll', key:'managing-staff-and-payroll')
+client_tasks << ClientTask.create(name: 'Managing Stock & Supplies', key:'managing-stock-and-suplliers')
+client_tasks << ClientTask.create(name: 'Managing Tax', key:'managing-tax')
+client_tasks << ClientTask.create(name: 'Performance Reporting', key: 'performance_reporting')
+client_tasks << ClientTask.create(name: 'Quoting', key:'quoting')
 
 # Product/Client task details
 client_tasks.each do |client_task|
