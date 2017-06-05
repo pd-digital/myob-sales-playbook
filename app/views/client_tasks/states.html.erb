@@ -2,46 +2,46 @@
   <div class="container">
     <p class="page-instruction">Assess the current and future state of their topics:</p>
 
-    <div class="row">
-      <div class="col-xs-9">
-        <% @client_tasks.each do |client_task| %>
-        <div class="col-xs-4">
-          <div data-key="<%= client_task.key %>" data-name="<%= client_task.name %>" class="card client-task">
-            <p class="card__title"><%= client_task.name %></p>
-
-            <div class="card__body">
-              <div>
-                <label><strong>Curent state</strong></label>
-                <% if current_user.is_admin? %>
-                <textarea data-current-state style="width: 100%;"><%= client_task.current_state %></textarea>
-                <% else %>
-                <div><%= String(client_task.current_state).html_safe %></div>
-                <% end %>
-              </div>
-
-              <div>
-                <label><strong>Future state</strong></label>
-                <% if current_user.is_admin? %>
-                <textarea data-future-state style="width: 100%;"><%= client_task.future_state %></textarea>
-                <% else %>
-                <div><%= String(client_task.future_state).html_safe %></div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-
-      <div class="col-xs-3 sidebar">
-        <%= render 'shared/client_info' %>
-      </div>
+    <div class="tab-group">
+    <% @products.each do |product| %>
+      <button data-id="<%= product.id %>" data-product="<%= product.name.downcase %>" class="tab__item btn-toggle btn-product"><%= product.name %></button>
+    <% end %>
     </div>
 
-    <% if current_user.is_admin? %>
-    <button id="save-client-task-states">SAVE</button>
+    <% @client_tasks.each do |client_task, product_task_details| %>
+    <br>
+    <p><%= client_task.name %></p>
+
+    <% product_task_details.each do |product_task_detail| %>
+    <div class="row product-row product-row--<%= product_task_detail.product.name.downcase %>">
+      <div class="col-xs-2">
+        <small><%= product_task_detail.product.name.downcase %></small>
+        <%= render partial: 'shared/editable_textarea', locals: { name: 'Current State', key: 'product-task-details', attr: 'current_state', resource: product_task_detail, data: product_task_detail.current_state }%>
+      </div>
+
+      <div class="col-xs-2">
+        <small><%= product_task_detail.product.name.downcase %></small>
+        <%= render partial: 'shared/editable_textarea', locals: { name: 'Future State', key: 'product-task-details', attr: 'future_state', resource: product_task_detail, data: product_task_detail.future_state }%>
+      </div>
+
+      <div class="col-xs-2">
+        <small><%= product_task_detail.product.name.downcase %></small>
+        <%= render partial: 'shared/editable_textarea', locals: { name: 'Insights', key: 'product-task-details', attr: 'insights', resource: product_task_detail, data: product_task_detail.insights }%>
+      </div>
+
+      <div class="col-xs-2">
+        <small><%= product_task_detail.product.name.downcase %></small>
+        <%= render partial: 'shared/editable_textarea', locals: { name: 'Features', key: 'product-task-details', attr: 'features', resource: product_task_detail, data: product_task_detail.features }%>
+      </div>
+
+      <div class="col-xs-2">
+        <small><%= product_task_detail.product.name.downcase %></small>
+        <%= render partial: 'shared/editable_textarea', locals: { name: 'Benefits', key: 'product-task-details', attr: 'benefits', resource: product_task_detail, data: product_task_detail.benefits }%>
+      </div>
+    </div>
     <% end %>
+  <% end %>
   </div>
 </main>
 
-<%= render partial: "footer", locals: { prev_page_link: client_tasks_path, next_page_link: client_tasks_path } %>
+<%= render partial: "footer", locals: { prev_page_link: client_tasks_path, next_page_link: products_path } %>

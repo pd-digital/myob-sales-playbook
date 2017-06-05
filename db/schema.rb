@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405111733) do
+ActiveRecord::Schema.define(version: 20170531111933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,12 +40,10 @@ ActiveRecord::Schema.define(version: 20170405111733) do
   create_table "client_tasks", force: :cascade do |t|
     t.string   "name"
     t.string   "key"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text     "questions"
-    t.text     "current_state"
-    t.text     "future_state"
-    t.integer  "product_feature_id"
+    t.text     "info"
     t.index ["key"], name: "index_client_tasks_on_key", unique: true, using: :btree
   end
 
@@ -56,10 +54,27 @@ ActiveRecord::Schema.define(version: 20170405111733) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "discovery_questions", force: :cascade do |t|
+    t.string "name"
+    t.text   "questions"
+  end
+
   create_table "product_features", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "product_task_details", force: :cascade do |t|
+    t.text    "current_state"
+    t.text    "future_state"
+    t.text    "insights"
+    t.text    "benefits"
+    t.text    "features"
+    t.integer "product_id"
+    t.integer "client_task_id"
+    t.index ["client_task_id"], name: "index_product_task_details_on_client_task_id", using: :btree
+    t.index ["product_id"], name: "index_product_task_details_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -94,4 +109,6 @@ ActiveRecord::Schema.define(version: 20170405111733) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "product_task_details", "client_tasks"
+  add_foreign_key "product_task_details", "products"
 end

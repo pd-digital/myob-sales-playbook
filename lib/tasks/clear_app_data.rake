@@ -1,7 +1,7 @@
 task :clear_app_data => :environment do
+  DiscoveryQuestion.all.each{ |discovery_question| discovery_question.delete }
+  ProductTaskDetail.all.each{ |product_task_detail| product_task_detail.delete }
   Product.all.each{ |product| product.delete }
-  ProductFeature.all.each{ |product_feature| product_feature.delete }
-  ClientBenefit.all.each{ |client_benefit| client_benefit.delete }
   ClientTask.all.each{ |client_task| client_task.delete }
 
   Team.all.each{ |team| team.delete }

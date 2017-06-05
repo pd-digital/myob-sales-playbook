@@ -1,22 +1,32 @@
+<% title 'Mission Active' %>
+
 <main>
   <div class="container">
-    <p class="page-instruction">Ask your client what tasks they do and select <strong>3</strong> key topics to focus your conversation on:</p>
-
-    <div class="row" data-container="client-task">
+    <div class="row">
       <div class="col-xs-9">
-        <% @client_tasks.each do |client_task| %>
-        <div class="col-xs-4">
-          <button data-client-task="<%= client_task.name %>" class="card card--wide btn-toggle btn-client-task"><%= client_task.name %></button>
+        <p>Learn about your client and determine discussion target points <strong>(limit of 3):</strong></p>
+
+        <div class="row" data-container="client-task">
+          <% @client_tasks.each do |client_task| %>
+          <div class="col-xs-4">
+            <button data-client-task="<%= client_task.key %>" class="card card--wide btn-toggle"><%= client_task.name %></button>
+          </div>
+          <% end %>
         </div>
-        <% end %>
+
+        <p>Mission Brief guidelines:</p>
+
+        <div class="row">
+          <% @discovery_questions.each do |discovery_question| %>
+          <div class="col-xs-4">
+            <%= render partial: 'shared/editable_textarea', locals: { key: 'discovery-questions', resource: discovery_question, attr: 'questions', data: discovery_question.questions }%>
+          </div>
+          <% end %>
+        </div>
       </div>
 
       <div class="col-xs-3 sidebar">
-        <div class="client-info">
-          <p class="client-info__title">Client information</p>
-          <hr>
-          <div data-client-info></div>
-        </div>
+        <%= render partial: 'shared/client_info' %>
       </div>
     </div>
   </div>

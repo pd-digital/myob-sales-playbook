@@ -1,0 +1,12 @@
+<div class="card" data-card data-resource="<%= key %>" data-resource-id="<%= resource.id %>" data-attr="<%= attr %>">
+  <% name ||= resource.name %>
+  <p class="card__title"><strong><%= name %></strong></p>
+  <div class="card__body">
+    <% if current_user.is_admin? %>
+    <textarea data-trumbowyg data-value style="width: 100%;"><%= data %></textarea>
+    <button data-action='save'>SAVE</button>
+    <% else %>
+    <div><%= String(data).html_safe %></div>
+    <% end %>
+  </div>
+</div>

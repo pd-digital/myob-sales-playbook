@@ -17,6 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'jquery-turbolinks', '~> 2.1'
 gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.2'
+gem 'hashie'
 
 group :development, :test do
   gem 'byebug', platform: :mri

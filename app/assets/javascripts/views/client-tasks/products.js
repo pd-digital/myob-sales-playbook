@@ -6,7 +6,6 @@ $(document).ready(function() {
   var ORIGINAL_NEXT_HREF = $('.next').attr('href')
   var ORIGINAL_PREV_HREF = $('.prev').attr('href')
   var SAVE_CLIENT_BENEFIT_SELECTOR = '#save-client-benefits'
-  console.log(KEY)
 
   MSP.Toggler().init({ key: KEY })
 

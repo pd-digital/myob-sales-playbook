@@ -1,12 +1,16 @@
 $(document).ready(function() {
   if (!window.location.pathname.match(/\/client_tasks\/.*\/states/)) return false
 
-  console.log('states')
-
   var CLIENT_TASK_KEY = 'client-task'
 
+  MSP.EnableSaveButtons()
   MSP.ClientInfo().init()
 
+  function getQueryString() {
+    return
+  }
+
+  // TODO: COME ON!
   if (localStorage.getItem(CLIENT_TASK_KEY)) {
     var keys = JSON.parse(localStorage.getItem(CLIENT_TASK_KEY))
     keys = keys.map(function(key) {
@@ -15,35 +19,20 @@ $(document).ready(function() {
     var originalPrevHref = $('.prev').attr('href')
     $('.prev').attr('href', originalPrevHref + '/' + keys.join(',') + '/questions')
 
+    // TODO: SOME Cray cray tab stuff
     var originalNextHref = $('.next').attr('href')
-    $('.next').attr('href', originalNextHref + '/' + keys.join(',') + '/products')
+    $('.product-row').hide()
+    $('.product-row--essentials').show()
+    $('[data-product="essentials"]').addClass('active')
+    $('.next').attr('href', originalNextHref + '/essentials?client_tasks=' + keys.join(','))
+
+    $('.tab__item').on('click', function() {
+      var productName = $(this).data('product')
+      $('.product-row').hide()
+      $('.product-row--' + productName).show()
+      $('[data-product]').removeClass('active')
+      $(this).addClass('active')
+      $('.next').attr('href', originalNextHref + '/' + $(this).data('product') + '?client_tasks=' + keys.join(','))
+    })
   }
-
-  $('[data-current-state], [data-future-state]').trumbowyg({
-    btns: ['strong', 'em', 'unorderedList', 'orderedList'],
-    autogrow: true
-  })
-
-  $('#save-client-task-states').on('click', function() {
-    var data = { clientTasks: [] }
-
-    $('.client-task').each(function(index, clientTask) {
-      data.clientTasks.push({
-        key: $(clientTask).attr('data-key'),
-        name: $(clientTask).attr('data-name'),
-        currentState: $(clientTask).find('[data-current-state]').val(),
-        futureState: $(clientTask).find('[data-future-state]').val()
-      })
-    })
-
-    $.ajax({
-      url: '/client_tasks/states',
-      method: 'PUT',
-      data: JSON.stringify(data),
-      contentType: 'application/json; charset=utf-8',
-      success: function(data) {
-        console.log(data)
-      }
-    })
-  })
 })

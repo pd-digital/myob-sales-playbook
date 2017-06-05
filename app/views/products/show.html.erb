@@ -1,8 +1,14 @@
 <main>
   <div class="container">
-    <p class="page-title">MYOB <%= @product.capitalize %></p>
+    <p class="page-title">MYOB <%= @product.name %></p>
 
-    <%= render @product %>
+    <% @product_task_details.each do |product_task_detail| %>
+      <p>Client Task: <%= product_task_detail.client_task.name %></p>
+      <p>Features: <%= product_task_detail.features %></p>
+      <hr>
+    <% end %>
+
+    <%= render @product.name.downcase %>
   </div>
 </main>
 
