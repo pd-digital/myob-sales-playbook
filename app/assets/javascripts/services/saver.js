@@ -23,7 +23,7 @@ MSP.EnableSaveButtons = function() {
     return '/' + [resourceName, resourceId].join('/')
   }
 
-  var resourceName = function($card) {
+  var getResourceName = function($card) {
     return $card.data('resource').replace(/-/g, '_')
   }
 
@@ -31,7 +31,7 @@ MSP.EnableSaveButtons = function() {
     var attr = $card.data('attr')
     var val = $card.find(dataValueSelector).val()
     var rawData = {
-      [resourceName($card)]: {
+      [getResourceName($card)]: {
         [attr]: val
       }
     }
